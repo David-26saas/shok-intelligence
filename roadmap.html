@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap — Shok-Intelligence Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.roadmap-hero{padding:100px 0 60px;border-bottom:1px solid var(--border);}
+.roadmap-disclaimer{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;padding:14px 18px;font-size:13px;color:var(--text);margin:32px 0 48px;}
+.roadmap-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:60px;}
+.roadmap-col{}
+.col-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--border);}
+.col-dot{width:10px;height:10px;border-radius:50%;}
+.col-dot.shipped{background:var(--green);}
+.col-dot.building{background:var(--indigo);}
+.col-dot.planned{background:var(--muted);}
+.col-title{font-size:14px;font-weight:700;color:var(--heading);text-transform:uppercase;letter-spacing:0.06em;}
+.col-subtitle{font-size:11px;color:var(--muted);margin-left:auto;}
+.roadmap-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:12px;transition:border-color 0.2s;}
+.roadmap-item:hover{border-color:var(--border2);}
+.roadmap-item.building{border-left:3px solid var(--indigo);}
+.roadmap-item.shipped{border-left:3px solid var(--green);}
+.roadmap-item-title{font-size:14px;font-weight:600;color:var(--heading);margin-bottom:6px;}
+.roadmap-item-desc{font-size:12px;color:var(--text);line-height:1.6;margin-bottom:10px;}
+.roadmap-item-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.roadmap-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:999px;}
+.tag-ai{background:rgba(99,102,241,0.1);color:#818CF8;}
+.tag-api{background:var(--cyan-dim);color:var(--cyan);}
+.tag-security{background:rgba(16,185,129,0.1);color:var(--green);}
+.tag-enterprise{background:rgba(245,158,11,0.1);color:var(--orange);}
+.tag-dx{background:rgba(239,68,68,0.1);color:var(--red);}
+.progress-bar{height:3px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--indigo);border-radius:2px;transition:width 0.3s;}
+.vote-section{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:48px;text-align:center;margin-bottom:80px;}
+@media(max-width:768px){.roadmap-cols{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+<div class="container">
+
+  <div class="roadmap-hero fadein">
+    <div class="section-label">Product Roadmap</div>
+    <h1>What we're building next.</h1>
+    <p style="font-size:16px;max-width:560px;margin-top:16px;">A transparent view of our engineering priorities. Updated monthly. Vote on what matters most to your team.</p>
+    <div class="roadmap-disclaimer">
+      ⚠️ <strong>Disclaimer:</strong> This roadmap reflects our current intentions and is subject to change based on customer feedback, engineering complexity, and business priorities. Dates are estimates, not commitments.
+    </div>
+  </div>
+
+  <div class="roadmap-cols fadein">
+
+    <!-- SHIPPED -->
+    <div class="roadmap-col">
+      <div class="col-header">
+        <div class="col-dot shipped"></div>
+        <div class="col-title">Shipped</div>
+        <div class="col-subtitle">Q4 2024 — Q1 2025</div>
+      </div>
+      <div class="roadmap-item shipped">
+        <div class="roadmap-item-title">Drift Detection Alerts</div>
+        <div class="roadmap-item-desc">Automated model accuracy monitoring with configurable thresholds and 15-minute alert SLA.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-ai">AI</span></div>
+      </div>
+      <div class="roadmap-item shipped">
+        <div class="roadmap-item-title">Go SDK v1.0 GA</div>
+        <div class="roadmap-item-desc">Official Go client library at full feature parity with Python and TypeScript SDKs.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-dx">DX</span><span class="roadmap-tag tag-api">API</span></div>
+      </div>
+      <div class="roadmap-item shipped">
+        <div class="roadmap-item-title">Grafana Native Connector</div>
+        <div class="roadmap-item-desc">Prometheus-compatible metrics endpoint with pre-built dashboard JSON.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-api">Observability</span></div>
+      </div>
+      <div class="roadmap-item shipped">
+        <div class="roadmap-item-title">SCIM 2.0 Provisioning</div>
+        <div class="roadmap-item-desc">Automated user lifecycle management for Enterprise customers.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-enterprise">Enterprise</span><span class="roadmap-tag tag-security">Security</span></div>
+      </div>
+      <div class="roadmap-item shipped">
+        <div class="roadmap-item-title">ap-southeast-1 Region</div>
+        <div class="roadmap-item-desc">Asia-Pacific data residency available at workspace level.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-enterprise">Infrastructure</span></div>
+      </div>
+    </div>
+
+    <!-- IN PROGRESS -->
+    <div class="roadmap-col">
+      <div class="col-header">
+        <div class="col-dot building"></div>
+        <div class="col-title">Building</div>
+        <div class="col-subtitle">Q2 2025</div>
+      </div>
+      <div class="roadmap-item building">
+        <div class="roadmap-item-title">Batch Prediction API</div>
+        <div class="roadmap-item-desc">Submit up to 10,000 prediction requests in a single async job. Results delivered via webhook or S3 export. Ideal for nightly scoring pipelines.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-api">API</span><span class="roadmap-tag tag-ai">AI</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:75%;"></div></div>
+      </div>
+      <div class="roadmap-item building">
+        <div class="roadmap-item-title">Custom Model Training UI</div>
+        <div class="roadmap-item-desc">No-code interface for uploading training data and fine-tuning prediction models directly in the dashboard — without API calls.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-ai">AI</span><span class="roadmap-tag tag-dx">DX</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:40%;"></div></div>
+      </div>
+      <div class="roadmap-item building">
+        <div class="roadmap-item-title">ISO 27001 Certification</div>
+        <div class="roadmap-item-desc">Audit underway with BSI. Expected certification Q2 2026. Interim compliance report available to Enterprise customers on request.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-security">Security</span><span class="roadmap-tag tag-enterprise">Enterprise</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:55%;"></div></div>
+      </div>
+      <div class="roadmap-item building">
+        <div class="roadmap-item-title">Ruby SDK</div>
+        <div class="roadmap-item-desc">Official Ruby client library, currently in community preview. Targeting GA in Q2 2025.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-dx">DX</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:60%;"></div></div>
+      </div>
+    </div>
+
+    <!-- PLANNED -->
+    <div class="roadmap-col">
+      <div class="col-header">
+        <div class="col-dot planned"></div>
+        <div class="col-title">Planned</div>
+        <div class="col-subtitle">Q3–Q4 2025</div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-item-title">On-Premises Deployment</div>
+        <div class="roadmap-item-desc">Self-hosted deployment for highly regulated industries (healthcare, defence). Docker + Helm charts with air-gapped support.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-enterprise">Enterprise</span><span class="roadmap-tag tag-security">Security</span></div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-item-title">Streaming Inference API</div>
+        <div class="roadmap-item-desc">Server-sent events for long-running inference jobs. Partial results streamed before full prediction completes.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-api">API</span><span class="roadmap-tag tag-ai">AI</span></div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-item-title">Multi-Model Ensemble</div>
+        <div class="roadmap-item-desc">Combine predictions from multiple models with configurable weighting strategies via a single API call.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-ai">AI</span></div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-item-title">HubSpot Native Integration</div>
+        <div class="roadmap-item-desc">Certified HubSpot App Marketplace integration. Trigger predictions on contact lifecycle events without custom code.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-dx">Integrations</span></div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-item-title">Terraform Provider</div>
+        <div class="roadmap-item-desc">Manage Shok-IS workspaces, models, and webhooks as infrastructure-as-code.</div>
+        <div class="roadmap-item-tags"><span class="roadmap-tag tag-dx">DX</span><span class="roadmap-tag tag-enterprise">DevOps</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- VOTE -->
+  <div class="vote-section fadein">
+    <h2 style="font-size:28px;margin-bottom:12px;">Shape the roadmap.</h2>
+    <p style="font-size:15px;max-width:480px;margin:0 auto 28px;">Missing something? Submit a feature request or vote on existing ones. The top-voted requests get prioritised every quarter.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="mailto:product@shok-is.com?subject=Feature%20Request" class="btn-primary">Submit a Feature Request</a>
+      <a href="mailto:product@shok-is.com" class="btn-ghost">Talk to Product →</a>
+    </div>
+  </div>
+
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="shared-root.js"></script>
+</body>
+</html>
