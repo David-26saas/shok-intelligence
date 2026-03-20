@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — Shok-Intelligence Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.careers-hero{padding:100px 0 80px;border-bottom:1px solid var(--border);}
+.perks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:80px 0;border-bottom:1px solid var(--border);}
+.perk-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;}
+.perk-icon{font-size:28px;margin-bottom:12px;}
+.perk-title{font-size:14px;font-weight:600;color:var(--heading);margin-bottom:6px;}
+.perk-desc{font-size:13px;color:var(--text);line-height:1.65;}
+.jobs-section{padding:80px 0;}
+.job-dept{margin-bottom:48px;}
+.job-dept-title{font-size:13px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.job-dept-title::before{content:'';width:20px;height:1px;background:var(--cyan);}
+.job-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;transition:border-color 0.2s,transform 0.2s;cursor:pointer;}
+.job-item:hover{border-color:var(--indigo-glow);transform:translateX(4px);}
+.job-info{}
+.job-title{font-size:15px;font-weight:600;color:var(--heading);margin-bottom:6px;}
+.job-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.job-tag{font-size:11px;color:var(--muted);background:var(--surface2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;}
+.job-tag.remote{color:var(--green);border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.08);}
+.job-arrow{color:var(--indigo);font-size:18px;flex-shrink:0;}
+.values-band{background:linear-gradient(135deg,var(--indigo-dim),var(--cyan-dim));border:1px solid var(--border);border-radius:20px;padding:60px;text-align:center;margin-bottom:80px;}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+<div class="container">
+
+  <div class="careers-hero fadein">
+    <div class="section-label">Careers</div>
+    <h1>Build the infrastructure layer<br>for production AI.</h1>
+    <p style="font-size:18px;max-width:580px;margin-top:16px;">We're a small, focused team building serious infrastructure. If you care deeply about API design, distributed systems, and developer experience — we want to hear from you.</p>
+    <div style="display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;">
+      <div style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:var(--green);">●</span> 12 people globally</div>
+      <div style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:var(--green);">●</span> Remote-first</div>
+      <div style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:var(--green);">●</span> Headquarters in London, UK</div>
+    </div>
+  </div>
+
+  <!-- PERKS -->
+  <div class="perks-grid fadein">
+    <div class="perk-card"><div class="perk-icon">🌍</div><div class="perk-title">Remote-first</div><div class="perk-desc">Work from anywhere. We have team members across the UK, EU, and North America. Async by default.</div></div>
+    <div class="perk-card"><div class="perk-icon">💷</div><div class="perk-title">Competitive compensation</div><div class="perk-desc">Top-of-market base salary, equity options, and annual performance bonuses benchmarked to London/SF rates.</div></div>
+    <div class="perk-card"><div class="perk-icon">🏥</div><div class="perk-title">Private health insurance</div><div class="perk-desc">Full private medical cover for you and your family through Bupa. Dental and optical included.</div></div>
+    <div class="perk-card"><div class="perk-icon">📚</div><div class="perk-title">Learning budget</div><div class="perk-desc">£2,000/year for conferences, courses, books, and certifications. We fund your SOC 2 audit training, conference speaking, and technical education.</div></div>
+    <div class="perk-card"><div class="perk-icon">🛠️</div><div class="perk-title">Top-tier equipment</div><div class="perk-desc">MacBook Pro M4, mechanical keyboard, 4K monitor — whatever you need to do your best work. £1,500 home office budget.</div></div>
+    <div class="perk-card"><div class="perk-icon">✈️</div><div class="perk-title">Team offsites</div><div class="perk-desc">Twice-yearly full team gatherings. Past locations: Edinburgh, Lisbon. Upcoming: Copenhagen.</div></div>
+  </div>
+
+  <!-- JOBS -->
+  <div class="jobs-section fadein">
+    <h2 style="margin-bottom:48px;">Open Positions</h2>
+
+    <div class="job-dept">
+      <div class="job-dept-title">Engineering</div>
+      <div class="job-item"><div class="job-info"><div class="job-title">Senior Backend Engineer — Inference Platform</div><div class="job-tags"><span class="job-tag">Go / Rust</span><span class="job-tag">Distributed Systems</span><span class="job-tag remote">Remote</span><span class="job-tag">£95–120K</span></div></div><div class="job-arrow">→</div></div>
+      <div class="job-item"><div class="job-info"><div class="job-title">Staff Engineer — API Infrastructure</div><div class="job-tags"><span class="job-tag">Python / Go</span><span class="job-tag">API Design</span><span class="job-tag remote">Remote</span><span class="job-tag">£120–150K</span></div></div><div class="job-arrow">→</div></div>
+      <div class="job-item"><div class="job-info"><div class="job-title">ML Infrastructure Engineer</div><div class="job-tags"><span class="job-tag">Python</span><span class="job-tag">PyTorch</span><span class="job-tag remote">Remote</span><span class="job-tag">£90–115K</span></div></div><div class="job-arrow">→</div></div>
+    </div>
+
+    <div class="job-dept">
+      <div class="job-dept-title">Security</div>
+      <div class="job-item"><div class="job-info"><div class="job-title">Application Security Engineer</div><div class="job-tags"><span class="job-tag">Pen Testing</span><span class="job-tag">SOC 2</span><span class="job-tag remote">Remote / London</span><span class="job-tag">£85–110K</span></div></div><div class="job-arrow">→</div></div>
+    </div>
+
+    <div class="job-dept">
+      <div class="job-dept-title">Product &amp; Design</div>
+      <div class="job-item"><div class="job-info"><div class="job-title">Product Designer — Developer Experience</div><div class="job-tags"><span class="job-tag">Figma</span><span class="job-tag">Design Systems</span><span class="job-tag remote">Remote</span><span class="job-tag">£70–90K</span></div></div><div class="job-arrow">→</div></div>
+      <div class="job-item"><div class="job-info"><div class="job-title">Technical Product Manager</div><div class="job-tags"><span class="job-tag">API Products</span><span class="job-tag">B2B SaaS</span><span class="job-tag remote">Remote / London</span><span class="job-tag">£80–105K</span></div></div><div class="job-arrow">→</div></div>
+    </div>
+
+    <div class="job-dept">
+      <div class="job-dept-title">Go-To-Market</div>
+      <div class="job-item"><div class="job-info"><div class="job-title">Developer Relations Engineer</div><div class="job-tags"><span class="job-tag">Technical Writing</span><span class="job-tag">Community</span><span class="job-tag remote">Remote</span><span class="job-tag">£65–85K</span></div></div><div class="job-arrow">→</div></div>
+    </div>
+  </div>
+
+  <!-- CTA BAND -->
+  <div class="values-band fadein">
+    <h2 style="font-size:32px;margin-bottom:12px;">Don't see the right role?</h2>
+    <p style="font-size:16px;max-width:480px;margin:0 auto 28px;">We hire for exceptional people first, roles second. Send us your CV and tell us what you'd want to build.</p>
+    <a href="mailto:careers@shok-is.com" class="btn-primary">Send an open application →</a>
+  </div>
+
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="shared-root.js"></script>
+</body>
+</html>
