@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status — Shok-Intelligence Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.status-hero{padding:80px 0 48px;text-align:center;}
+.overall-status{display:inline-flex;align-items:center;gap:12px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:999px;padding:12px 28px;margin-bottom:24px;}
+.overall-dot{width:10px;height:10px;border-radius:50%;background:var(--green);animation:pulse-green 2s infinite;}
+.overall-text{font-size:16px;font-weight:600;color:var(--green);}
+.last-updated{font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.uptime-bar{display:flex;gap:3px;margin-top:6px;}
+.uptime-day{flex:1;height:28px;border-radius:3px;transition:opacity 0.2s;}
+.uptime-day:hover{opacity:0.8;}
+.uptime-day.ok{background:var(--green);}
+.uptime-day.incident{background:var(--red);}
+.uptime-day.degraded{background:var(--orange);}
+.uptime-day.maintenance{background:var(--muted);}
+.components-section{margin:0 0 48px;}
+.component-row{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;transition:border-color 0.2s;}
+.component-row:hover{border-color:var(--border2);}
+.component-name{font-size:14px;font-weight:500;color:var(--heading);}
+.component-meta{font-size:12px;color:var(--muted);margin-top:3px;}
+.component-status{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;}
+.component-status.ok{color:var(--green);}
+.component-status.degraded{color:var(--orange);}
+.component-status.incident{color:var(--red);}
+.component-status::before{content:'●';font-size:8px;}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px;}
+.metric-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;}
+.metric-card-value{font-size:28px;font-weight:700;color:var(--heading);letter-spacing:-0.04em;font-family:'JetBrains Mono',monospace;}
+.metric-card-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;}
+.metric-card-period{font-size:11px;color:var(--muted);margin-top:4px;}
+.incidents-section{margin-bottom:60px;}
+.incident-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px;}
+.incident-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.incident-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:999px;text-transform:uppercase;}
+.badge-resolved{background:rgba(16,185,129,0.1);color:var(--green);}
+.badge-monitoring{background:rgba(245,158,11,0.1);color:var(--orange);}
+.incident-title{font-size:15px;font-weight:600;color:var(--heading);}
+.incident-date{font-size:12px;color:var(--muted);margin-left:auto;}
+.incident-update{display:flex;gap:14px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
+.update-time{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;white-space:nowrap;min-width:120px;}
+.update-text{font-size:13px;color:var(--text);line-height:1.6;}
+.uptime-label-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px;}
+@media(max-width:768px){.metrics-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+<div class="container">
+
+  <div class="status-hero fadein">
+    <div class="section-label" style="justify-content:center;">System Status</div>
+    <div class="overall-status">
+      <div class="overall-dot"></div>
+      <div class="overall-text">All Systems Operational</div>
+    </div>
+    <div class="last-updated" id="lastUpdated">Last checked: loading...</div>
+  </div>
+
+  <!-- METRICS -->
+  <div class="metrics-grid fadein">
+    <div class="metric-card"><div class="metric-card-value">99.97%</div><div class="metric-card-label">Uptime</div><div class="metric-card-period">Last 90 days</div></div>
+    <div class="metric-card"><div class="metric-card-value" id="liveLatency">43ms</div><div class="metric-card-label">API Latency (p50)</div><div class="metric-card-period">Live</div></div>
+    <div class="metric-card"><div class="metric-card-value">89ms</div><div class="metric-card-label">API Latency (p95)</div><div class="metric-card-period">Last 24h avg</div></div>
+    <div class="metric-card"><div class="metric-card-value">0</div><div class="metric-card-label">Active Incidents</div><div class="metric-card-period">Right now</div></div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <div class="components-section fadein">
+    <h2 style="margin-bottom:20px;">Components</h2>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">Core API</div>
+      <div class="component-row"><div><div class="component-name">Prediction Inference API</div><div class="component-meta">api.shok-is.com · POST /v1/predict</div></div><div class="component-status ok">Operational</div></div>
+      <div class="component-row"><div><div class="component-name">Webhook Delivery</div><div class="component-meta">Bidirectional sync · All regions</div></div><div class="component-status ok">Operational</div></div>
+      <div class="component-row"><div><div class="component-name">Authentication &amp; API Keys</div><div class="component-meta">Bearer token validation · SAML SSO</div></div><div class="component-status ok">Operational</div></div>
+      <div class="component-row"><div><div class="component-name">Rate Limiting</div><div class="component-meta">Per-key enforcement · Burst handling</div></div><div class="component-status ok">Operational</div></div>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">Infrastructure</div>
+      <div class="component-row"><div><div class="component-name">eu-west-2 (London)</div><div class="component-meta">Primary region · AWS</div></div><div class="component-status ok">Operational</div></div>
+      <div class="component-row"><div><div class="component-name">us-east-1 (Virginia)</div><div class="component-meta">Secondary region · AWS</div></div><div class="component-status ok">Operational</div></div>
+      <div class="component-row"><div><div class="component-name">ap-southeast-1 (Singapore)</div><div class="component-meta">Asia-Pacific region · AWS</div></div><div class="component-status ok">Operational</div></div>
+    </div>
+
+    <div>
+      <div style="font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">Platform</div>
+      <div class="component-row"><div><div class="component-name">Dashboard</div><div class="component-meta">app.shok-is.com · Web UI</div></div><div class="component-status ok">Operational</div></div>
+      <div class="component-row"><div><div class="component-name">Developer Documentation</div><div class="component-meta">docs.shok-is.com</div></div><div class="component-status ok">Operational</div></div>
+      <div class="component-row"><div><div class="component-name">Audit Logging</div><div class="component-meta">Event log pipeline · 365-day retention</div></div><div class="component-status ok">Operational</div></div>
+    </div>
+  </div>
+
+  <!-- 90-DAY UPTIME -->
+  <div class="fadein" style="margin-bottom:48px;">
+    <h2 style="margin-bottom:20px;">90-Day Uptime History</h2>
+    <div class="uptime-bar" id="uptimeBar"></div>
+    <div class="uptime-label-row"><span>90 days ago</span><span>Today</span></div>
+    <div style="display:flex;gap:20px;margin-top:12px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><div style="width:12px;height:12px;border-radius:2px;background:var(--green);"></div>Operational</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><div style="width:12px;height:12px;border-radius:2px;background:var(--orange);"></div>Degraded</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><div style="width:12px;height:12px;border-radius:2px;background:var(--red);"></div>Incident</div>
+    </div>
+  </div>
+
+  <!-- INCIDENTS -->
+  <div class="incidents-section fadein">
+    <h2 style="margin-bottom:20px;">Recent Incidents</h2>
+
+    <div class="incident-item">
+      <div class="incident-header">
+        <span class="incident-badge badge-resolved">Resolved</span>
+        <div class="incident-title">Elevated webhook delivery latency — eu-west-2</div>
+        <div class="incident-date">March 4, 2025</div>
+      </div>
+      <div class="incident-update"><div class="update-time">11:42 UTC · Resolved</div><div class="update-text">Full webhook delivery capacity restored. Root cause: connection pool exhaustion on the webhook delivery service triggered by an unusually large batch job from a single workspace. Rate limiting on batch jobs improved.</div></div>
+      <div class="incident-update"><div class="update-time">11:18 UTC · Update</div><div class="update-text">Webhook delivery delays averaging 4–8 minutes. Inference API unaffected. Engineers actively mitigating.</div></div>
+      <div class="incident-update"><div class="update-time">10:55 UTC · Identified</div><div class="update-text">We have identified elevated webhook delivery latency. Investigating root cause. Inference API operating normally.</div></div>
+    </div>
+
+    <div class="incident-item">
+      <div class="incident-header">
+        <span class="incident-badge badge-resolved">Resolved</span>
+        <div class="incident-title">Partial dashboard unavailability</div>
+        <div class="incident-date">December 12, 2024</div>
+      </div>
+      <div class="incident-update"><div class="update-time">14:22 UTC · Resolved</div><div class="update-text">Dashboard fully restored. Root cause: failed deployment of a CSS dependency update that caused rendering errors on Chromium-based browsers. API unaffected throughout.</div></div>
+      <div class="incident-update"><div class="update-time">13:47 UTC · Identified</div><div class="update-text">Dashboard UI experiencing rendering errors on Chrome and Edge. API and SDKs operating normally. Working on a fix.</div></div>
+    </div>
+
+    <div style="text-align:center;padding-top:12px;">
+      <a href="#" style="font-size:13px;color:var(--indigo);">View full incident history →</a>
+    </div>
+  </div>
+
+  <!-- SUBSCRIBE -->
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:48px;text-align:center;margin-bottom:80px;" class="fadein">
+    <h2 style="font-size:24px;margin-bottom:10px;">Subscribe to status updates.</h2>
+    <p style="font-size:14px;margin-bottom:24px;">Get notified by email or Slack when incidents are declared or resolved.</p>
+    <div style="display:flex;gap:12px;max-width:360px;margin:0 auto;">
+      <input type="email" placeholder="you@company.com" style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:11px 16px;font-size:14px;color:var(--heading);font-family:'Inter',sans-serif;outline:none;">
+      <a href="#" class="btn-primary" style="white-space:nowrap;padding:11px 20px;font-size:14px;">Subscribe</a>
+    </div>
+  </div>
+
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="shared-root.js"></script>
+<script>
+// Last updated timestamp
+document.getElementById('lastUpdated').textContent = 'Last checked: ' + new Date().toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit',second:'2-digit'}) + ' UTC';
+
+// Generate uptime bar (90 days, mostly green, 2 incidents)
+const bar = document.getElementById('uptimeBar');
+const incidents = [12, 45]; // days ago that had incidents
+const degraded = [8, 38];
+for(let i = 89; i >= 0; i--) {
+  const d = document.createElement('div');
+  d.className = 'uptime-day';
+  if(incidents.includes(i)) d.classList.add('incident');
+  else if(degraded.includes(i)) d.classList.add('degraded');
+  else d.classList.add('ok');
+  d.title = i === 0 ? 'Today' : `${i} days ago`;
+  bar.appendChild(d);
+}
+
+// Live latency ticker
+let baseLatency = 43;
+setInterval(() => {
+  baseLatency += Math.floor(Math.random() * 6) - 3;
+  baseLatency = Math.max(30, Math.min(65, baseLatency));
+  document.getElementById('liveLatency').textContent = baseLatency + 'ms';
+}, 2000);
+</script>
+</body>
+</html>
