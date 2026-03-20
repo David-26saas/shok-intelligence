@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog — Shok-Intelligence Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.changelog-hero{padding:100px 0 60px;border-bottom:1px solid var(--border);}
+.changelog-layout{display:grid;grid-template-columns:200px 1fr;gap:60px;padding:60px 0;}
+.changelog-nav{position:sticky;top:84px;}
+.changelog-nav-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;}
+.changelog-nav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;padding:6px 0;border-left:2px solid var(--border);padding-left:12px;transition:all 0.2s;margin-bottom:4px;}
+.changelog-nav a:hover,.changelog-nav a.active{color:var(--heading);border-left-color:var(--indigo);}
+.changelog-entry{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border);}
+.changelog-entry:last-child{border-bottom:none;}
+.entry-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
+.entry-version{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;color:var(--heading);}
+.entry-date{font-size:13px;color:var(--muted);}
+.entry-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:0.08em;}
+.badge-major{background:rgba(99,102,241,0.15);color:#818CF8;}
+.badge-minor{background:rgba(16,185,129,0.1);color:var(--green);}
+.badge-patch{background:var(--surface2);color:var(--muted);}
+.change-group{margin-bottom:20px;}
+.change-group-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.change-group-title.new{color:var(--green);}
+.change-group-title.improved{color:var(--cyan);}
+.change-group-title.fixed{color:var(--orange);}
+.change-group-title.deprecated{color:var(--red);}
+.change-item{display:flex;gap:12px;margin-bottom:8px;align-items:flex-start;}
+.change-dot{width:6px;height:6px;border-radius:50%;margin-top:6px;flex-shrink:0;}
+.change-dot.new{background:var(--green);}
+.change-dot.improved{background:var(--cyan);}
+.change-dot.fixed{background:var(--orange);}
+.change-dot.deprecated{background:var(--red);}
+.change-text{font-size:14px;color:var(--text);line-height:1.6;}
+.change-text strong{color:var(--heading);}
+.change-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:var(--cyan);margin-left:6px;}
+@media(max-width:768px){.changelog-layout{grid-template-columns:1fr;}.changelog-nav{display:none;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+<div class="container">
+
+  <div class="changelog-hero fadein">
+    <div class="section-label">Changelog</div>
+    <h1>What's new in Shok-IS.</h1>
+    <p style="font-size:16px;max-width:520px;margin-top:16px;">Every product change, improvement, and fix — documented with precision. No marketing speak.</p>
+    <div style="margin-top:20px;font-size:13px;color:var(--muted);">Subscribe to changelog via <a href="#" style="color:var(--indigo);">RSS</a> or <a href="#" style="color:var(--indigo);">email</a>.</div>
+  </div>
+
+  <div class="changelog-layout">
+    <div class="changelog-nav fadein">
+      <div class="changelog-nav-title">Versions</div>
+      <a href="#v3-4-1" class="active">v3.4.1 — Mar 2025</a>
+      <a href="#v3-4-0">v3.4.0 — Feb 2025</a>
+      <a href="#v3-3-0">v3.3.0 — Jan 2025</a>
+      <a href="#v3-2-2">v3.2.2 — Dec 2024</a>
+      <a href="#v3-2-0">v3.2.0 — Nov 2024</a>
+      <a href="#v3-0-0">v3.0.0 — Oct 2024</a>
+    </div>
+
+    <div class="fadein">
+
+      <!-- v3.4.1 -->
+      <div class="changelog-entry" id="v3-4-1">
+        <div class="entry-header">
+          <div class="entry-version">v3.4.1</div>
+          <div class="entry-date">March 12, 2025</div>
+          <span class="entry-badge badge-patch">Patch</span>
+        </div>
+        <div class="change-group">
+          <div class="change-group-title fixed">🔧 Fixed</div>
+          <div class="change-item"><div class="change-dot fixed"></div><div class="change-text">Fixed a race condition in the webhook retry queue that caused occasional duplicate deliveries under high load (>10,000 events/min). <span class="change-tag">webhooks</span></div></div>
+          <div class="change-item"><div class="change-dot fixed"></div><div class="change-text">Resolved an issue where <strong>confidence_threshold</strong> values of exactly 0.5 were incorrectly treated as below-threshold. <span class="change-tag">inference</span></div></div>
+          <div class="change-item"><div class="change-dot fixed"></div><div class="change-text">Python SDK: fixed type annotation for <strong>vector_weights</strong> return type (was <code>Dict[str, Any]</code>, now correctly <code>Dict[str, float]</code>). <span class="change-tag">sdk</span></div></div>
+        </div>
+      </div>
+
+      <!-- v3.4.0 -->
+      <div class="changelog-entry" id="v3-4-0">
+        <div class="entry-header">
+          <div class="entry-version">v3.4.0</div>
+          <div class="entry-date">February 28, 2025</div>
+          <span class="entry-badge badge-minor">Minor</span>
+        </div>
+        <div class="change-group">
+          <div class="change-group-title new">✨ New</div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>Drift detection alerts</strong> — Automated model accuracy monitoring now fires alerts within 15 minutes of detecting significant distribution shift. Configure thresholds per model via the dashboard or API. <span class="change-tag">AI</span></div></div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>Go SDK v1.0</strong> — Official Go client library now in General Availability. Full feature parity with Python and TypeScript SDKs. <span class="change-tag">sdk</span></div></div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>Grafana connector</strong> — Native Prometheus-compatible metrics endpoint. Pre-built dashboard JSON available in the docs. <span class="change-tag">observability</span></div></div>
+        </div>
+        <div class="change-group">
+          <div class="change-group-title improved">⚡ Improved</div>
+          <div class="change-item"><div class="change-dot improved"></div><div class="change-text">Inference p95 latency reduced from 89ms to 71ms following connection pool optimisation in eu-west-2. <span class="change-tag">performance</span></div></div>
+          <div class="change-item"><div class="change-dot improved"></div><div class="change-text">Webhook manifest now supports up to 50 endpoints per workspace (previously 20). <span class="change-tag">webhooks</span></div></div>
+        </div>
+      </div>
+
+      <!-- v3.3.0 -->
+      <div class="changelog-entry" id="v3-3-0">
+        <div class="entry-header">
+          <div class="entry-version">v3.3.0</div>
+          <div class="entry-date">January 15, 2025</div>
+          <span class="entry-badge badge-minor">Minor</span>
+        </div>
+        <div class="change-group">
+          <div class="change-group-title new">✨ New</div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>Shadow mode testing</strong> — Run new model versions in parallel against live traffic without affecting production predictions. Accessible via <span class="change-tag">POST /v1/models/:id/shadow</span></div></div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>SCIM provisioning</strong> — Enterprise teams can now automate user provisioning and deprovisioning via SCIM 2.0. <span class="change-tag">enterprise</span></div></div>
+        </div>
+        <div class="change-group">
+          <div class="change-group-title fixed">🔧 Fixed</div>
+          <div class="change-item"><div class="change-dot fixed"></div><div class="change-text">Resolved SAML 2.0 assertion parsing failure affecting Okta integrations with custom attribute mappings. <span class="change-tag">auth</span></div></div>
+        </div>
+      </div>
+
+      <!-- v3.2.2 -->
+      <div class="changelog-entry" id="v3-2-2">
+        <div class="entry-header">
+          <div class="entry-version">v3.2.2</div>
+          <div class="entry-date">December 4, 2024</div>
+          <span class="entry-badge badge-patch">Patch</span>
+        </div>
+        <div class="change-group">
+          <div class="change-group-title fixed">🔧 Fixed</div>
+          <div class="change-item"><div class="change-dot fixed"></div><div class="change-text">Security patch: upgraded <strong>jsonwebtoken</strong> dependency to address CVE-2024-XXXXX (low severity). No customer data was at risk. <span class="change-tag">security</span></div></div>
+          <div class="change-item"><div class="change-dot fixed"></div><div class="change-text">Fixed audit log export failing for workspaces with more than 100,000 events per month. <span class="change-tag">compliance</span></div></div>
+        </div>
+      </div>
+
+      <!-- v3.2.0 -->
+      <div class="changelog-entry" id="v3-2-0">
+        <div class="entry-header">
+          <div class="entry-version">v3.2.0</div>
+          <div class="entry-date">November 18, 2024</div>
+          <span class="entry-badge badge-minor">Minor</span>
+        </div>
+        <div class="change-group">
+          <div class="change-group-title new">✨ New</div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>ap-southeast-1 region</strong> — Asia-Pacific data residency now available. Select at the workspace level in Settings → Data Residency. <span class="change-tag">infrastructure</span></div></div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>Snowflake connector</strong> — Direct SQL-to-feature pipeline. No ETL middleware required. Read the integration guide. <span class="change-tag">integrations</span></div></div>
+        </div>
+        <div class="change-group">
+          <div class="change-group-title deprecated">⚠️ Deprecated</div>
+          <div class="change-item"><div class="change-dot deprecated"></div><div class="change-text"><strong>v1-beta API</strong> is now deprecated and will be removed on May 1, 2025 (180-day notice). Migrate to <span class="change-tag">v1</span> stable. Migration guide available in the docs.</div></div>
+        </div>
+      </div>
+
+      <!-- v3.0.0 -->
+      <div class="changelog-entry" id="v3-0-0">
+        <div class="entry-header">
+          <div class="entry-version">v3.0.0</div>
+          <div class="entry-date">October 1, 2024</div>
+          <span class="entry-badge badge-major">Major</span>
+        </div>
+        <div class="change-group">
+          <div class="change-group-title new">✨ New — General Availability</div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>Shok-IS v3 — General Availability.</strong> The platform exits beta. All features stable and covered by 99.97% SLA. Breaking changes will require 180-day deprecation notice from this version forward.</div></div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>Transformer-based inference engine</strong> — Complete rewrite of the inference stack using a transformer architecture. Median latency reduced 60% vs v2. <span class="change-tag">AI</span></div></div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>SOC 2 Type II certification</strong> — Audited by Schellman &amp; Co. Report available to Enterprise customers under NDA. <span class="change-tag">compliance</span></div></div>
+          <div class="change-item"><div class="change-dot new"></div><div class="change-text"><strong>Bidirectional webhooks</strong> — Full push/pull webhook architecture with HMAC-SHA256 signing, retry logic, and dead-letter queues. <span class="change-tag">webhooks</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="shared-root.js"></script>
+</body>
+</html>
