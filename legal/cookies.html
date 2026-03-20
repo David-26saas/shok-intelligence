@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy — Shok-Intelligence Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+  <div class="container">
+    <div class="legal-hero fadein">
+      <div class="legal-tag">⚖ UK PECR Compliant</div>
+      <h1>Cookie Policy</h1>
+      <div class="meta">Last updated: 1 January 2025 · Shok Intelligence Systems Ltd</div>
+    </div>
+    <div class="legal-body">
+      <div class="legal-toc">
+        <div class="legal-toc-title">Contents</div>
+        <a href="#what" class="legal-toc-link">1. What Are Cookies</a>
+        <a href="#types" class="legal-toc-link">2. Cookies We Use</a>
+        <a href="#third-party" class="legal-toc-link">3. Third-Party Cookies</a>
+        <a href="#control" class="legal-toc-link">4. Managing Cookies</a>
+        <a href="#updates" class="legal-toc-link">5. Policy Updates</a>
+      </div>
+      <div class="legal-content fadein">
+        
+<section id="what"><h2>1. What Are Cookies</h2>
+<p>Cookies are small text files placed on your device when you visit our website. They allow us to recognise your device, remember your preferences, and analyse how our website is used. We comply with the UK Privacy and Electronic Communications Regulations (PECR) 2003 and UK GDPR.</p></section>
+
+<section id="types"><h2>2. Cookies We Use</h2>
+<h3>Strictly Necessary Cookies</h3>
+<p>These cookies are essential for the website and API dashboard to function. They include session tokens, authentication cookies, and CSRF protection tokens. These cookies cannot be disabled as they are required for security and core functionality. No consent is required under PECR for these cookies.</p>
+<h3>Analytical Cookies</h3>
+<p>We use first-party analytics to understand how visitors interact with our documentation and marketing pages. Data is aggregated and anonymised. These cookies require your consent.</p>
+<h3>Preference Cookies</h3>
+<p>These cookies remember your settings such as code language preference in the Developer Hub (Python, Node, Go) and dark/light mode preference.</p></section>
+
+<section id="third-party"><h2>3. Third-Party Cookies</h2>
+<p>We do not use third-party advertising or tracking cookies. The only third-party cookies on our platform are:</p>
+<ul><li><strong>Stripe.js</strong> — Required for PCI-compliant payment processing on checkout pages. Stripe's cookie policy applies.</li><li><strong>Google Fonts</strong> — A session cookie may be set when loading fonts. No personal data is collected.</li></ul></section>
+
+<section id="control"><h2>4. Managing Cookies</h2>
+<p>You can control and delete cookies through your browser settings. Note that disabling strictly necessary cookies will prevent you from logging in or using the API dashboard. You can manage analytical cookie consent via the cookie banner displayed on your first visit.</p>
+<p>For more information on managing cookies, visit <a href="https://www.aboutcookies.org" target="_blank">aboutcookies.org</a>.</p></section>
+
+<section id="updates"><h2>5. Policy Updates</h2>
+<p>We may update this Cookie Policy from time to time. Material changes will be notified via email to registered account holders. The "Last Updated" date at the top of this page reflects the most recent revision.</p></section>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="../shared.js"></script>
+<script>
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('.legal-content section');
+  const links = document.querySelectorAll('.legal-toc a');
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+  links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+current));
+});
+</script>
+</body>
+</html>
