@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Reference — Shok-Intelligence Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+.docs-layout{display:grid;grid-template-columns:260px 1fr;gap:0;padding-top:64px;min-height:100vh;}
+.docs-sidebar{position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto;border-right:1px solid var(--border);padding:32px 0;}
+.docs-sidebar::-webkit-scrollbar{width:3px;}
+.sidebar-section{margin-bottom:28px;}
+.sidebar-section-title{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.15em;padding:0 24px;margin-bottom:8px;}
+.sidebar-link{display:block;font-size:13px;color:var(--muted);text-decoration:none;padding:7px 24px;transition:all 0.15s;border-left:2px solid transparent;}
+.sidebar-link:hover{color:var(--heading);background:rgba(255,255,255,0.02);}
+.sidebar-link.active{color:var(--cyan);border-left-color:var(--cyan);background:var(--cyan-dim);}
+.sidebar-link .badge-sm{font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:8px;text-transform:uppercase;}
+.badge-post{background:rgba(99,102,241,0.2);color:#818CF8;}
+.badge-get{background:rgba(16,185,129,0.2);color:var(--green);}
+.badge-del{background:rgba(239,68,68,0.2);color:var(--red);}
+.docs-content{padding:48px 60px 100px;max-width:900px;}
+.docs-section{margin-bottom:72px;scroll-margin-top:84px;}
+.endpoint-block{background:#0D0D10;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:20px 0;}
+.endpoint-header{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);}
+.method-tag{font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace;}
+.method-post{background:rgba(99,102,241,0.2);color:#818CF8;}
+.method-get{background:rgba(16,185,129,0.2);color:var(--green);}
+.method-delete{background:rgba(239,68,68,0.2);color:var(--red);}
+.endpoint-path{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--heading);}
+.endpoint-desc{font-size:12px;color:var(--muted);margin-left:auto;}
+.code-block-docs{padding:20px 24px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.9;overflow-x:auto;color:var(--text);}
+.code-block-docs .kw{color:#818CF8;}
+.code-block-docs .str{color:#86EFAC;}
+.code-block-docs .num{color:#FCA5A5;}
+.code-block-docs .key{color:var(--cyan);}
+.code-block-docs .val{color:#FCD34D;}
+.code-block-docs .comment{color:var(--muted);}
+.params-table{width:100%;border-collapse:collapse;margin:16px 0;}
+.params-table th{background:var(--surface2);padding:10px 14px;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;text-align:left;}
+.params-table td{padding:12px 14px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:top;}
+.params-table tr:last-child td{border-bottom:none;}
+.param-name{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:12px;}
+.param-type{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);background:var(--surface2);padding:2px 6px;border-radius:4px;}
+.param-req{font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;}
+.param-opt{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;}
+.alert-box{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:13px;line-height:1.65;}
+.alert-info{background:var(--indigo-dim);border:1px solid rgba(99,102,241,0.3);color:#C7D0F0;}
+.alert-warn{background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);color:#FCD34D;}
+h3.endpoint-title{font-size:16px;margin-bottom:6px;color:var(--heading);}
+.docs-intro{font-size:15px;color:var(--text);line-height:1.8;margin-bottom:24px;max-width:680px;}
+.auth-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:16px 0;display:flex;gap:16px;align-items:flex-start;}
+.auth-icon{font-size:24px;}
+@media(max-width:768px){.docs-layout{grid-template-columns:1fr;}.docs-sidebar{display:none;}.docs-content{padding:32px 20px;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="docs-layout">
+
+  <!-- SIDEBAR -->
+  <div class="docs-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Getting Started</div>
+      <a href="#overview" class="sidebar-link active">Overview</a>
+      <a href="#auth" class="sidebar-link">Authentication</a>
+      <a href="#errors" class="sidebar-link">Error Codes</a>
+      <a href="#rate-limits" class="sidebar-link">Rate Limits</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Predictions</div>
+      <a href="#predict" class="sidebar-link"><span class="badge-sm badge-post">POST</span> /v1/predict</a>
+      <a href="#predict-batch" class="sidebar-link"><span class="badge-sm badge-post">POST</span> /v1/predict/batch</a>
+      <a href="#predict-get" class="sidebar-link"><span class="badge-sm badge-get">GET</span> /v1/predict/:id</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Models</div>
+      <a href="#models-list" class="sidebar-link"><span class="badge-sm badge-get">GET</span> /v1/models</a>
+      <a href="#models-get" class="sidebar-link"><span class="badge-sm badge-get">GET</span> /v1/models/:id</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Webhooks</div>
+      <a href="#webhooks" class="sidebar-link"><span class="badge-sm badge-post">POST</span> /v1/webhooks</a>
+      <a href="#webhooks-list" class="sidebar-link"><span class="badge-sm badge-get">GET</span> /v1/webhooks</a>
+      <a href="#webhooks-del" class="sidebar-link"><span class="badge-sm badge-del">DEL</span> /v1/webhooks/:id</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">SDKs</div>
+      <a href="#sdk-python" class="sidebar-link">Python SDK</a>
+      <a href="#sdk-node" class="sidebar-link">Node.js SDK</a>
+      <a href="#sdk-go" class="sidebar-link">Go SDK</a>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="docs-content">
+
+    <div class="docs-section fadein" id="overview">
+      <div class="section-label">API Reference</div>
+      <h1 style="font-size:40px;margin-bottom:16px;">Developer Documentation</h1>
+      <p class="docs-intro">The Shok-IS API is organized around REST. Our API has predictable resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes and authentication.</p>
+      <div class="alert-info alert-box">🔗 <strong>Base URL:</strong> <code style="font-family:'JetBrains Mono',monospace;">https://api.shok-is.com</code> &nbsp;·&nbsp; All requests must use <strong>HTTPS</strong>. HTTP is not supported.</div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;">
+        <div class="auth-card"><div class="auth-icon">📄</div><div><div style="font-size:13px;font-weight:600;color:var(--heading);margin-bottom:4px;">OpenAPI Schema</div><a href="#" style="font-size:12px;">Download .yaml →</a></div></div>
+        <div class="auth-card"><div class="auth-icon">🧪</div><div><div style="font-size:13px;font-weight:600;color:var(--heading);margin-bottom:4px;">Postman Collection</div><a href="#" style="font-size:12px;">Import collection →</a></div></div>
+        <div class="auth-card"><div class="auth-icon">📦</div><div><div style="font-size:13px;font-weight:600;color:var(--heading);margin-bottom:4px;">Sandbox Datasets</div><a href="#" style="font-size:12px;">Browse datasets →</a></div></div>
+      </div>
+    </div>
+
+    <div class="docs-section" id="auth">
+      <h2>Authentication</h2>
+      <p style="font-size:14px;margin-bottom:16px;">All API requests require a Bearer token passed in the <code style="font-family:'JetBrains Mono',monospace;color:var(--cyan);">Authorization</code> header. API keys are workspace-scoped and prefixed with <code style="font-family:'JetBrains Mono',monospace;color:var(--cyan);">sk_live_</code> for production or <code style="font-family:'JetBrains Mono',monospace;color:var(--cyan);">sk_test_</code> for sandbox.</p>
+      <div class="endpoint-block">
+        <div class="code-block-docs"><span class="comment"># Example authenticated request</span>
+<span class="kw">curl</span> -X POST https://api.shok-is.com/v1/predict \
+  -H <span class="str">"Authorization: Bearer sk_live_••••••••••••"</span> \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -H <span class="str">"X-Workspace-ID: ws_9f3a21bc"</span> \
+  -d '<span class="str">{...}</span>'</div>
+      </div>
+      <div class="alert-warn alert-box">⚠️ Never expose your <code style="font-family:'JetBrains Mono',monospace;">sk_live_</code> key in client-side code. Use environment variables or a secrets manager.</div>
+    </div>
+
+    <div class="docs-section" id="predict">
+      <h2>POST /v1/predict</h2>
+      <p style="font-size:14px;margin-bottom:16px;">Submit a synchronous prediction request. Returns a typed prediction vector with confidence score and feature attribution weights. Median latency: <strong style="color:var(--cyan);">&lt;50ms</strong>.</p>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method-tag method-post">POST</span>
+          <span class="endpoint-path">/v1/predict</span>
+          <span class="endpoint-desc">Synchronous inference</span>
+        </div>
+        <div class="code-block-docs"><span class="comment">// Request body</span>
+{
+  <span class="key">"model_id"</span>: <span class="str">"mdl_revenue_churn_v3"</span>,       <span class="comment">// required</span>
+  <span class="key">"input_vector"</span>: {                          <span class="comment">// required</span>
+    <span class="key">"tenure_days"</span>: <span class="num">487</span>,
+    <span class="key">"mrr_gbp"</span>: <span class="num">1240.00</span>,
+    <span class="key">"feature_usage_score"</span>: <span class="num">0.83</span>,
+    <span class="key">"last_login_delta"</span>: <span class="num">12</span>
+  },
+  <span class="key">"output_format"</span>: <span class="str">"typed"</span>,              <span class="comment">// "typed" | "raw" | "verbose"</span>
+  <span class="key">"confidence_threshold"</span>: <span class="num">0.75</span>           <span class="comment">// optional, default: 0.5</span>
+}</div>
+      </div>
+
+      <h3 style="font-size:15px;margin:24px 0 12px;">Request Parameters</h3>
+      <table class="params-table">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="param-name">model_id</td><td><span class="param-type">string</span></td><td><span class="param-req">Required</span></td><td style="color:var(--text);font-size:13px;">The versioned model identifier. Format: <code style="font-family:'JetBrains Mono',monospace;color:var(--cyan);">mdl_{name}_{version}</code></td></tr>
+          <tr><td class="param-name">input_vector</td><td><span class="param-type">object</span></td><td><span class="param-req">Required</span></td><td style="color:var(--text);font-size:13px;">Key-value pairs of feature names and their values. Must match the model's expected schema.</td></tr>
+          <tr><td class="param-name">output_format</td><td><span class="param-type">string</span></td><td><span class="param-opt">Optional</span></td><td style="color:var(--text);font-size:13px;"><code style="font-family:'JetBrains Mono',monospace;color:var(--cyan);">typed</code> (default), <code style="font-family:'JetBrains Mono',monospace;color:var(--cyan);">raw</code>, or <code style="font-family:'JetBrains Mono',monospace;color:var(--cyan);">verbose</code> (includes SHAP values).</td></tr>
+          <tr><td class="param-name">confidence_threshold</td><td><span class="param-type">float</span></td><td><span class="param-opt">Optional</span></td><td style="color:var(--text);font-size:13px;">Minimum confidence to return a prediction. Default: 0.5. Range: 0.0–1.0.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="endpoint-block" style="margin-top:24px;">
+        <div class="endpoint-header"><span style="font-size:11px;font-weight:700;color:var(--green);font-family:'JetBrains Mono',monospace;">200 OK</span><span class="endpoint-desc">Successful prediction</span></div>
+        <div class="code-block-docs">{
+  <span class="key">"request_id"</span>: <span class="str">"req_7KqpZ2mNxT"</span>,
+  <span class="key">"model_version"</span>: <span class="str">"3.4.1"</span>,
+  <span class="key">"prediction"</span>: <span class="val">"HIGH_CHURN_RISK"</span>,
+  <span class="key">"confidence"</span>: <span class="num">0.91</span>,
+  <span class="key">"vector_weights"</span>: {
+    <span class="key">"feature_usage_score"</span>: <span class="num">0.44</span>,
+    <span class="key">"last_login_delta"</span>: <span class="num">0.33</span>,
+    <span class="key">"tenure_days"</span>: <span class="num">0.14</span>,
+    <span class="key">"mrr_gbp"</span>: <span class="num">0.09</span>
+  },
+  <span class="key">"latency_ms"</span>: <span class="num">43</span>,
+  <span class="key">"timestamp"</span>: <span class="str">"2025-11-04T09:17:33.241Z"</span>
+}</div>
+      </div>
+    </div>
+
+    <div class="docs-section" id="errors">
+      <h2>Error Codes</h2>
+      <table class="params-table">
+        <thead><tr><th>Code</th><th>HTTP Status</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="param-name">authentication_error</td><td style="font-size:13px;color:var(--text);">401</td><td style="font-size:13px;color:var(--text);">Invalid or missing API key.</td></tr>
+          <tr><td class="param-name">model_not_found</td><td style="font-size:13px;color:var(--text);">404</td><td style="font-size:13px;color:var(--text);">The specified model_id does not exist in your workspace.</td></tr>
+          <tr><td class="param-name">schema_mismatch</td><td style="font-size:13px;color:var(--text);">422</td><td style="font-size:13px;color:var(--text);">input_vector does not match the model's expected feature schema.</td></tr>
+          <tr><td class="param-name">rate_limit_exceeded</td><td style="font-size:13px;color:var(--text);">429</td><td style="font-size:13px;color:var(--text);">You have exceeded your plan's rate limit. Retry after the X-RateLimit-Reset header value.</td></tr>
+          <tr><td class="param-name">inference_timeout</td><td style="font-size:13px;color:var(--text);">504</td><td style="font-size:13px;color:var(--text);">The model took longer than 30 seconds to respond. Try again or contact support.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-section" id="rate-limits">
+      <h2>Rate Limits</h2>
+      <p style="font-size:14px;margin-bottom:16px;">Rate limits are applied per API key, per minute. Exceeded requests return a <code style="font-family:'JetBrains Mono',monospace;color:var(--cyan);">429</code> status with a <code style="font-family:'JetBrains Mono',monospace;color:var(--cyan);">Retry-After</code> header.</p>
+      <table class="params-table">
+        <thead><tr><th>Plan</th><th>Requests / min</th><th>Burst</th><th>Monthly quota</th></tr></thead>
+        <tbody>
+          <tr><td style="font-size:13px;color:var(--text);">Starter</td><td style="font-size:13px;color:var(--text);">60</td><td style="font-size:13px;color:var(--text);">—</td><td style="font-size:13px;color:var(--text);">1,000</td></tr>
+          <tr><td style="font-size:13px;color:var(--text);">Standard</td><td style="font-size:13px;color:var(--text);">500</td><td style="font-size:13px;color:var(--text);">750</td><td style="font-size:13px;color:var(--text);">100,000</td></tr>
+          <tr><td style="font-size:13px;color:var(--text);">Enterprise</td><td style="font-size:13px;color:var(--cyan);font-weight:600;">Custom</td><td style="font-size:13px;color:var(--cyan);font-weight:600;">Negotiated</td><td style="font-size:13px;color:var(--cyan);font-weight:600;">Unlimited</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-section" id="sdk-python">
+      <h2>Python SDK</h2>
+      <div class="endpoint-block">
+        <div class="code-block-docs"><span class="comment"># Install</span>
+<span class="kw">pip install</span> shokintelligence
+
+<span class="comment"># Basic usage</span>
+<span class="kw">import</span> shokintelligence <span class="kw">as</span> shok
+
+client = shok.<span class="val">Client</span>(api_key=<span class="str">"sk_live_••••"</span>)
+
+result = client.<span class="val">predict</span>(
+    model_id=<span class="str">"mdl_churn_v3"</span>,
+    input_vector={<span class="str">"tenure_days"</span>: <span class="num">487</span>}
+)
+
+<span class="kw">print</span>(result.prediction)    <span class="comment"># HIGH_CHURN_RISK</span>
+<span class="kw">print</span>(result.confidence)    <span class="comment"># 0.91</span>
+<span class="kw">print</span>(result.latency_ms)    <span class="comment"># 43</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../shared.js"></script>
+<script>
+// Active sidebar link on scroll
+const sections = document.querySelectorAll('.docs-section');
+const links = document.querySelectorAll('.sidebar-link');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+  links.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#'+current); });
+});
+</script>
+</body>
+</html>
