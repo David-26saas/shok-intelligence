@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceptable Use Policy — Shok-Intelligence Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+  <div class="container">
+    <div class="legal-hero fadein">
+      <div class="legal-tag">⚖ Applies to all plans</div>
+      <h1>Acceptable Use Policy</h1>
+      <div class="meta">Last updated: 1 January 2025 · Shok Intelligence Systems Ltd</div>
+    </div>
+    <div class="legal-body">
+      <div class="legal-toc">
+        <div class="legal-toc-title">Contents</div>
+        <a href="#prohibited" class="legal-toc-link">1. Prohibited Uses</a>
+        <a href="#api-abuse" class="legal-toc-link">2. API Abuse</a>
+        <a href="#data-rules" class="legal-toc-link">3. Data Rules</a>
+        <a href="#enforcement" class="legal-toc-link">4. Enforcement</a>
+        <a href="#reporting" class="legal-toc-link">5. Reporting Violations</a>
+      </div>
+      <div class="legal-content fadein">
+        
+<section id="prohibited"><h2>1. Prohibited Uses</h2>
+<p>You may not use the Shok-IS Service for any of the following purposes:</p>
+<ul><li>Illegal activities or activities that violate applicable law in your jurisdiction</li><li>Processing personal data of children under 13 without verified parental consent</li><li>Discrimination based on race, ethnicity, religion, gender, sexual orientation, disability, or other protected characteristics</li><li>Development of surveillance systems targeting individuals without their knowledge or consent</li><li>Weapons development, military applications, or activities regulated by export control laws</li><li>Any application designed to deceive, defraud, or harm end users</li></ul></section>
+
+<section id="api-abuse"><h2>2. API Abuse</h2>
+<p>The following API behaviours are strictly prohibited and may result in immediate account suspension:</p>
+<ul><li>Automated credential stuffing, brute-force, or enumeration attacks against the API</li><li>Deliberate attempts to exceed rate limits through distributed requests or multiple accounts</li><li>Scraping, extracting, or reverse-engineering model weights, training data, or proprietary algorithms</li><li>Reselling or sublicensing API access without a signed reseller agreement</li><li>Sharing API keys across multiple legal entities or organisations</li></ul></section>
+
+<section id="data-rules"><h2>3. Data Submission Rules</h2>
+<p>When submitting data to the prediction API, you represent that:</p>
+<ul><li>You have a valid legal basis under UK GDPR / EU GDPR to process any personal data contained in input vectors</li><li>You have obtained necessary consents or established legitimate interests for the processing purpose</li><li>You will not submit special category personal data (health, biometric, genetic data) without a signed DPA and explicit consent from data subjects</li><li>You will not submit financial account numbers, payment card data, or government identification numbers via the API</li></ul></section>
+
+<section id="enforcement"><h2>4. Enforcement</h2>
+<p>Violations of this AUP may result in:</p>
+<ul><li>Warning notice via registered email</li><li>Temporary rate limiting or API access suspension</li><li>Permanent account termination without refund</li><li>Legal action where violations constitute criminal offences under English law</li></ul>
+<p>We reserve the right to investigate suspected violations and cooperate with law enforcement authorities where required.</p></section>
+
+<section id="reporting"><h2>5. Reporting Violations</h2>
+<p>If you become aware of any use of the Shok-IS platform that violates this policy, please report it to <a href="mailto:abuse@shok-is.com">abuse@shok-is.com</a>. All reports are treated confidentially.</p></section>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="../shared.js"></script>
+<script>
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('.legal-content section');
+  const links = document.querySelectorAll('.legal-toc a');
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+  links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+current));
+});
+</script>
+</body>
+</html>
