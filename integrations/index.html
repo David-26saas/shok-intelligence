@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integration Registry — Shok-Intelligence Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+.int-hero{padding:80px 0 60px;text-align:center;}
+.int-hero p{max-width:560px;margin:16px auto 0;}
+.search-bar{max-width:480px;margin:36px auto 0;position:relative;}
+.search-input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 20px 14px 48px;font-size:14px;color:var(--heading);font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
+.search-input:focus{border-color:var(--indigo);}
+.search-input::placeholder{color:var(--muted);}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:1.5;}
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin:40px 0 32px;justify-content:center;}
+.filter-btn{padding:7px 18px;border-radius:999px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:transparent;color:var(--muted);font-family:'Inter',sans-serif;transition:all 0.2s;}
+.filter-btn:hover,.filter-btn.active{background:var(--indigo-dim);border-color:var(--indigo);color:var(--heading);}
+.int-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:60px;}
+.int-card-full{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.2s;cursor:pointer;display:flex;flex-direction:column;gap:12px;}
+.int-card-full:hover{border-color:var(--indigo-glow);transform:translateY(-2px);}
+.int-card-top{display:flex;align-items:center;justify-content:space-between;}
+.int-logo{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.int-badge{font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:0.06em;}
+.badge-native{background:rgba(16,185,129,0.1);color:var(--green);}
+.badge-beta{background:rgba(245,158,11,0.1);color:var(--orange);}
+.badge-community{background:var(--indigo-dim);color:#818CF8;}
+.int-name{font-size:15px;font-weight:600;color:var(--heading);}
+.int-category{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+.int-desc{font-size:13px;color:var(--text);line-height:1.65;}
+.int-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border);}
+.int-link{font-size:12px;color:var(--indigo);font-weight:500;}
+.int-version{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.empty-state{text-align:center;padding:60px;color:var(--muted);display:none;}
+.cta-band{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:48px;text-align:center;margin-bottom:60px;}
+.cta-band h2{font-size:28px;margin-bottom:12px;}
+.cta-band p{max-width:480px;margin:0 auto 28px;font-size:15px;}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+  <div class="container">
+
+    <div class="int-hero fadein">
+      <div class="section-label" style="justify-content:center;">Integration Registry</div>
+      <h1>Connect to Your Entire Stack.</h1>
+      <p>Browse all native connectors, community integrations, and webhook templates. New integrations added every sprint.</p>
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input class="search-input" type="text" placeholder="Search integrations..." id="searchInput" oninput="filterIntegrations()">
+      </div>
+    </div>
+
+    <div class="filter-bar fadein" id="filterBar">
+      <button class="filter-btn active" onclick="setFilter('all',this)">All (24)</button>
+      <button class="filter-btn" onclick="setFilter('crm',this)">CRM & Revenue</button>
+      <button class="filter-btn" onclick="setFilter('warehouse',this)">Data Warehouses</button>
+      <button class="filter-btn" onclick="setFilter('automation',this)">Automation</button>
+      <button class="filter-btn" onclick="setFilter('analytics',this)">Analytics</button>
+      <button class="filter-btn" onclick="setFilter('devops',this)">DevOps</button>
+      <button class="filter-btn" onclick="setFilter('messaging',this)">Messaging</button>
+    </div>
+
+    <div class="int-grid" id="intGrid"></div>
+    <div class="empty-state" id="emptyState">No integrations found. <a href="mailto:integrations@shok-is.com">Request one →</a></div>
+
+    <div class="cta-band fadein">
+      <h2>Don't see what you need?</h2>
+      <p>Request a new integration or build your own using our open Integration SDK. Community connectors reviewed weekly.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="mailto:integrations@shok-is.com" class="btn-primary">Request an Integration</a>
+        <a href="../docs/index.html" class="btn-ghost">Read Integration SDK Docs →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="../shared.js"></script>
+<script>
+const INTEGRATIONS = [
+  {name:'Salesforce CRM',cat:'crm',logo:'☁️',badge:'native',desc:'Sync contact attributes, trigger predictions on deal stage changes, and route churn scores directly to Salesforce fields.',version:'v2.1.0'},
+  {name:'HubSpot',cat:'crm',logo:'🟠',badge:'native',desc:'Real-time contact enrichment with prediction vectors. Trigger sequences based on model confidence scores.',version:'v1.8.2'},
+  {name:'Pipedrive',cat:'crm',logo:'🟢',badge:'native',desc:'Push prediction outputs to pipeline stages. Automate deal scoring with configurable thresholds.',version:'v1.3.0'},
+  {name:'Snowflake',cat:'warehouse',logo:'❄️',badge:'native',desc:'Direct SQL-to-feature pipeline. No ETL middleware. Query your warehouse, feed the model, get predictions back.',version:'v3.0.1'},
+  {name:'BigQuery',cat:'warehouse',logo:'🔵',badge:'native',desc:'Stream prediction results into BigQuery datasets. Full bidirectional sync via scheduled jobs or real-time triggers.',version:'v2.4.0'},
+  {name:'Redshift',cat:'warehouse',logo:'🔴',badge:'native',desc:'Native Amazon Redshift connector with COPY command support. Bulk prediction batch jobs supported.',version:'v1.9.0'},
+  {name:'dbt Cloud',cat:'warehouse',logo:'⚙️',badge:'native',desc:'Trigger prediction runs after dbt model refreshes. Pass feature tables directly to the inference engine.',version:'v1.2.1'},
+  {name:'Zapier',cat:'automation',logo:'⚡',badge:'native',desc:'2,000+ app automations. Route prediction events to any Zapier workflow with our certified Zap template.',version:'v4.0.0'},
+  {name:'Make (Integromat)',cat:'automation',logo:'🔷',badge:'native',desc:'Visual workflow automation. Use prediction webhooks as triggers for complex multi-step scenarios.',version:'v2.0.0'},
+  {name:'n8n',cat:'automation',logo:'🟡',badge:'community',desc:'Self-hosted automation with full prediction webhook support. Community-maintained connector.',version:'v0.9.4'},
+  {name:'Slack',cat:'messaging',logo:'💬',badge:'native',desc:'Instant prediction alerts in your Slack channels. Configurable thresholds, rich message formatting with confidence scores.',version:'v3.1.0'},
+  {name:'PagerDuty',cat:'messaging',logo:'🚨',badge:'native',desc:'Route high-confidence risk predictions to on-call schedules. Supports escalation policies.',version:'v1.5.0'},
+  {name:'Datadog',cat:'devops',logo:'🐕',badge:'native',desc:'Pipe API latency metrics, prediction throughput, and drift alerts directly to your Datadog dashboards.',version:'v2.2.0'},
+  {name:'Grafana',cat:'devops',logo:'📊',badge:'native',desc:'Prometheus-compatible metrics endpoint. Pre-built Grafana dashboard JSON available in the docs.',version:'v1.7.0'},
+  {name:'Segment',cat:'analytics',logo:'🔵',badge:'native',desc:'Enrich Segment user profiles with prediction scores. Trigger audience segments based on churn risk vectors.',version:'v2.0.3'},
+  {name:'Amplitude',cat:'analytics',logo:'📈',badge:'native',desc:'Send prediction events as Amplitude user properties. Build cohorts based on model confidence intervals.',version:'v1.4.0'},
+  {name:'Mixpanel',cat:'analytics',logo:'🟣',badge:'beta',desc:'Track prediction outcomes alongside product analytics. Funnel analysis with AI risk scoring.',version:'v0.8.0-beta'},
+  {name:'Stripe',cat:'automation',logo:'💳',badge:'native',desc:'Trigger fraud predictions on payment events. Route high-risk transactions to manual review queues.',version:'v2.5.0'},
+  {name:'Intercom',cat:'crm',logo:'💙',badge:'beta',desc:'Surface churn risk scores in Intercom conversation sidebars. Prioritise support by prediction confidence.',version:'v0.6.0-beta'},
+  {name:'GitHub Actions',cat:'devops',logo:'⬛',badge:'community',desc:'CI/CD pipeline integration. Run model validation jobs on push. Community-maintained action.',version:'v1.0.2'},
+  {name:'AWS S3',cat:'warehouse',logo:'🪣',badge:'native',desc:'Batch prediction jobs from S3 data files. Results written back to configurable S3 buckets.',version:'v1.6.0'},
+  {name:'Custom Webhook',cat:'automation',logo:'🔗',badge:'native',desc:'Send prediction events to any HTTPS endpoint. HMAC-SHA256 signing, retry logic, dead-letter queue included.',version:'v1.0.0'},
+  {name:'Notion',cat:'automation',logo:'⬜',badge:'community',desc:'Log prediction summaries to Notion databases. Weekly digest automation. Community-maintained.',version:'v0.4.1'},
+  {name:'Google Sheets',cat:'automation',logo:'🟩',badge:'community',desc:'Append prediction outputs to Google Sheets via Apps Script bridge. Community connector.',version:'v0.3.0'},
+];
+
+let activeFilter = 'all';
+
+function renderIntegrations(list) {
+  const grid = document.getElementById('intGrid');
+  const empty = document.getElementById('emptyState');
+  if(list.length === 0){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  grid.innerHTML = list.map(i => `
+    <div class="int-card-full">
+      <div class="int-card-top">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="int-logo" style="background:var(--surface2);">${i.logo}</div>
+          <div>
+            <div class="int-name">${i.name}</div>
+            <div class="int-category">${i.cat}</div>
+          </div>
+        </div>
+        <span class="int-badge badge-${i.badge}">${i.badge}</span>
+      </div>
+      <div class="int-desc">${i.desc}</div>
+      <div class="int-footer">
+        <a href="../docs/index.html" class="int-link">View docs →</a>
+        <span class="int-version">${i.version}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterIntegrations() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  let list = INTEGRATIONS;
+  if(activeFilter !== 'all') list = list.filter(i => i.cat === activeFilter);
+  if(q) list = list.filter(i => i.name.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q));
+  renderIntegrations(list);
+}
+
+function setFilter(cat, btn) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterIntegrations();
+}
+
+renderIntegrations(INTEGRATIONS);
+</script>
+</body>
+</html>
