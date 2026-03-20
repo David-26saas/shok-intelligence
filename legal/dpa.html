@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Processing Agreement — Shok-Intelligence Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+  <div class="container">
+    <div class="legal-hero fadein">
+      <div class="legal-tag">⚖ UK GDPR · EU GDPR Art. 28</div>
+      <h1>Data Processing Agreement</h1>
+      <div class="meta">Last updated: 1 January 2025 · Shok Intelligence Systems Ltd</div>
+    </div>
+    <div class="legal-body">
+      <div class="legal-toc">
+        <div class="legal-toc-title">Contents</div>
+        <a href="#parties" class="legal-toc-link">1. Parties & Definitions</a>
+        <a href="#scope" class="legal-toc-link">2. Scope of Processing</a>
+        <a href="#obligations" class="legal-toc-link">3. Processor Obligations</a>
+        <a href="#subprocessors" class="legal-toc-link">4. Sub-processors</a>
+        <a href="#security" class="legal-toc-link">5. Security Measures</a>
+        <a href="#breaches" class="legal-toc-link">6. Data Breaches</a>
+        <a href="#deletion" class="legal-toc-link">7. Deletion & Return</a>
+        <a href="#audits" class="legal-toc-link">8. Audits</a>
+      </div>
+      <div class="legal-content fadein">
+        
+<section id="parties"><h2>1. Parties and Definitions</h2>
+<p>This Data Processing Agreement ("DPA") is entered into between Shok Intelligence Systems Ltd ("Processor") and the customer entity that has agreed to our Terms of Service ("Controller").</p>
+<p>This DPA forms part of and is incorporated into the Terms of Service. In the event of a conflict, this DPA shall prevail in respect of data protection matters.</p>
+<p><strong>"Personal Data"</strong>, <strong>"Processing"</strong>, <strong>"Data Subject"</strong>, and <strong>"Supervisory Authority"</strong> have the meanings given in UK GDPR and EU GDPR 2016/679.</p></section>
+
+<section id="scope"><h2>2. Scope and Nature of Processing</h2>
+<p>Shok-IS processes Personal Data on your behalf solely to provide the prediction inference services described in the Terms of Service. The categories of data processed depend entirely on the input vectors you submit to the API. Shok-IS does not inspect, analyse, or use Customer Data for any purpose other than providing the Service.</p>
+<p><strong>Data subjects:</strong> Your end users, customers, or employees whose attributes form the input vectors.</p>
+<p><strong>Duration:</strong> For the term of your subscription agreement.</p></section>
+
+<section id="obligations"><h2>3. Processor Obligations</h2>
+<p>Shok Intelligence Systems Ltd agrees to:</p>
+<ul><li>Process Personal Data only on documented instructions from the Controller</li><li>Ensure that personnel authorised to process Personal Data are bound by confidentiality obligations</li><li>Implement appropriate technical and organisational security measures per Article 32 UK GDPR</li><li>Not engage sub-processors without prior written authorisation from the Controller</li><li>Assist the Controller in responding to Data Subject rights requests</li><li>Delete or return all Personal Data upon termination of the agreement</li></ul></section>
+
+<section id="subprocessors"><h2>4. Sub-processors</h2>
+<p>The Controller provides general authorisation for Shok-IS to engage the following sub-processors:</p>
+<ul><li><strong>Amazon Web Services EMEA SARL</strong> — Cloud infrastructure (EU/UK data centres)</li><li><strong>Stripe, Inc.</strong> — Payment processing (SCCs in place)</li><li><strong>Datadog, Inc.</strong> — Infrastructure monitoring (aggregated metrics only, no Personal Data)</li></ul>
+<p>We will notify you at least 14 days before engaging any new sub-processor. You have the right to object to new sub-processors within this period.</p></section>
+
+<section id="security"><h2>5. Technical and Organisational Security Measures</h2>
+<ul><li>AES-256 encryption at rest; TLS 1.3 in transit</li><li>Zero-trust network architecture with mTLS between internal services</li><li>Workspace-level data isolation with no cross-tenant access</li><li>API key hashing using Argon2id</li><li>Annual third-party penetration testing</li><li>SOC 2 Type II certification (audited by Schellman &amp; Co.)</li><li>Role-based access controls with MFA enforced for all staff</li></ul></section>
+
+<section id="breaches"><h2>6. Data Breach Notification</h2>
+<p>In the event of a Personal Data Breach, Shok-IS will notify the Controller without undue delay and within <strong>72 hours</strong> of becoming aware of the breach, to the extent such notification is required under UK GDPR Article 33. Notification will be sent to the primary account email address.</p></section>
+
+<section id="deletion"><h2>7. Deletion and Return of Data</h2>
+<p>Upon termination of the Services, Shok-IS will, at the Controller's election, delete or return all Personal Data within 90 days. Confirmation of deletion will be provided in writing.</p></section>
+
+<section id="audits"><h2>8. Audits and Inspections</h2>
+<p>Shok-IS will make available all information necessary to demonstrate compliance with this DPA and allow for audits conducted by the Controller or a mandated auditor, subject to reasonable advance notice (minimum 30 days) and confidentiality obligations.</p>
+<p>For Enterprise customers, our current SOC 2 Type II report is available under NDA upon request.</p></section>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="../shared.js"></script>
+<script>
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('.legal-content section');
+  const links = document.querySelectorAll('.legal-toc a');
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+  links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+current));
+});
+</script>
+</body>
+</html>
