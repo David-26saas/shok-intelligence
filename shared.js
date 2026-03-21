@@ -1,4 +1,5 @@
 // Shared components for Shok-IS
+// Shared components for Shok-IS
 const NAV = `
 <nav>
   <a href="https://shok-intelligence.com/" class="nav-logo">
@@ -27,10 +28,10 @@ const FOOTER = `
         </a>
         <p>Predictive Intelligence Infrastructure. Built for regulated industries and engineering teams that demand reliability.</p>
         <div class="footer-legal">
-          Shok Intelligence Systems Ltd.<br>
-          Registered in England &amp; Wales · Company No. 15XXXXXX<br>
-          71-75 Shelton Street, Covent Garden<br>
-          London, WC2H 9JQ, United Kingdom
+          AURA OPERATIONS LTD<br>
+          Registered in England &amp; Wales · No. 17037746<br>
+          128 City Road, London, EC1V 2NX, United Kingdom<br>
+          Tel: +44 7782 256996
         </div>
       </div>
       <div class="footer-col">
@@ -46,7 +47,7 @@ const FOOTER = `
         <div class="footer-col-title">Company</div>
         <a href="https://shok-intelligence.com/about.html">About</a>
         <a href="https://shok-intelligence.com/blog.html">Blog</a>
-        <a href="https://shok-intelligence.com/careers.html" class="hl">Careers — We're hiring →</a>
+        <a href="https://shok-intelligence.com/careers.html" class="hl">Careers — We&#39;re hiring →</a>
         <a href="https://shok-intelligence.com/press-kit.html">Press Kit</a>
         <a href="https://shok-intelligence.com/#security">Security</a>
         <a href="https://shok-intelligence.com/contact.html">Contact</a>
@@ -62,7 +63,7 @@ const FOOTER = `
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Shok Intelligence Systems Ltd. All rights reserved.</span>
+      <span class="footer-copy">© 2026 Shok-Intelligence. Shok-Intelligence is a trading name of AURA OPERATIONS LTD, registered in England and Wales (No. 17037746). Registered office: 128 City Road, London, EC1V 2NX, UK.</span>
       <span class="footer-status">All Systems Operational</span>
       <div class="footer-badges">
         <span class="footer-badge">SOC2</span>
