@@ -1,19 +1,19 @@
 // Shared components for Shok-IS
 const NAV = `
 <nav>
-  <a href="https://david-26saas.github.io/shok-intelligence/" class="nav-logo">
+  <a href="https://shok-intelligence.com/" class="nav-logo">
     <div class="nav-logo-mark"><svg viewBox="0 0 14 14"><path d="M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H2z"/></svg></div>
     Shok-IS
   </a>
   <div class="nav-links">
-    <a href="https://david-26saas.github.io/shok-intelligence/#features">Product</a>
-    <a href="https://david-26saas.github.io/shok-intelligence/#developers">Developers</a>
-    <a href="https://david-26saas.github.io/shok-intelligence/integrations/index.html">Integrations</a>
-    <a href="https://david-26saas.github.io/shok-intelligence/#security">Security</a>
-    <a href="https://david-26saas.github.io/shok-intelligence/#pricing">Pricing</a>
-    <a href="https://david-26saas.github.io/shok-intelligence/docs/index.html">Docs</a>
+    <a href="https://shok-intelligence.com/#features">Product</a>
+    <a href="https://shok-intelligence.com/#developers">Developers</a>
+    <a href="https://shok-intelligence.com/integrations/index.html">Integrations</a>
+    <a href="https://shok-intelligence.com/#security">Security</a>
+    <a href="https://shok-intelligence.com/#pricing">Pricing</a>
+    <a href="https://shok-intelligence.com/docs/index.html">Docs</a>
   </div>
-  <a href="https://david-26saas.github.io/shok-intelligence/signup/index.html" class="nav-cta">Get Started</a>
+  <a href="https://shok-intelligence.com/signup/index.html" class="nav-cta">Get Started</a>
 </nav>`;
 
 const FOOTER = `
@@ -21,7 +21,7 @@ const FOOTER = `
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="https://david-26saas.github.io/shok-intelligence/" class="nav-logo">
+        <a href="https://shok-intelligence.com/" class="nav-logo">
           <div class="nav-logo-mark"><svg viewBox="0 0 14 14" fill="white"><path d="M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H2z"/></svg></div>
           Shok-IS
         </a>
@@ -35,30 +35,30 @@ const FOOTER = `
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Product</div>
-        <a href="https://david-26saas.github.io/shok-intelligence/#features">Features</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/docs/index.html">API Reference</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/changelog.html">Changelog</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/roadmap.html">Roadmap</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/status.html">Status Page</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/signup/index.html">Sandbox</a>
+        <a href="https://shok-intelligence.com/#features">Features</a>
+        <a href="https://shok-intelligence.com/docs/index.html">API Reference</a>
+        <a href="https://shok-intelligence.com/changelog.html">Changelog</a>
+        <a href="https://shok-intelligence.com/roadmap.html">Roadmap</a>
+        <a href="https://shok-intelligence.com/status.html">Status Page</a>
+        <a href="https://shok-intelligence.com/signup/index.html">Sandbox</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
-        <a href="https://david-26saas.github.io/shok-intelligence/about.html">About</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/blog.html">Blog</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/careers.html" class="hl">Careers — We're hiring →</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/press-kit.html">Press Kit</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/#security">Security</a>
+        <a href="https://shok-intelligence.com/about.html">About</a>
+        <a href="https://shok-intelligence.com/blog.html">Blog</a>
+        <a href="https://shok-intelligence.com/careers.html" class="hl">Careers — We're hiring →</a>
+        <a href="https://shok-intelligence.com/press-kit.html">Press Kit</a>
+        <a href="https://shok-intelligence.com/#security">Security</a>
         <a href="mailto:hello@shok-is.com">Contact</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Legal &amp; Compliance</div>
-        <a href="https://david-26saas.github.io/shok-intelligence/legal/privacy.html">Privacy Policy</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/legal/terms.html">Terms of Service</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/legal/dpa.html">Data Processing Agreement</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/legal/cookies.html">Cookie Policy</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/legal/aup.html">Acceptable Use Policy</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/legal/gdpr.html">GDPR Statement</a>
+        <a href="https://shok-intelligence.com/legal/privacy.html">Privacy Policy</a>
+        <a href="https://shok-intelligence.com/legal/terms.html">Terms of Service</a>
+        <a href="https://shok-intelligence.com/legal/dpa.html">Data Processing Agreement</a>
+        <a href="https://shok-intelligence.com/legal/cookies.html">Cookie Policy</a>
+        <a href="https://shok-intelligence.com/legal/aup.html">Acceptable Use Policy</a>
+        <a href="https://shok-intelligence.com/legal/gdpr.html">GDPR Statement</a>
       </div>
     </div>
     <div class="footer-bottom">
