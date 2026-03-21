@@ -49,7 +49,7 @@ const FOOTER = `
         <a href="https://shok-intelligence.com/careers.html" class="hl">Careers — We're hiring →</a>
         <a href="https://shok-intelligence.com/press-kit.html">Press Kit</a>
         <a href="https://shok-intelligence.com/#security">Security</a>
-        <a href="mailto:hello@shok-is.com">Contact</a>
+        <a href="https://shok-intelligence.com/contact.html">Contact</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Legal &amp; Compliance</div>
