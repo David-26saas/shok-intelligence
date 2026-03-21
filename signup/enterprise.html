@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talk to Sales — Enterprise — Shok-Intelligence Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0B;--surface:#111113;--surface2:#16161A;--border:#1E1E22;--indigo:#6366F1;--indigo-dim:rgba(99,102,241,0.15);--indigo-glow:rgba(99,102,241,0.3);--cyan:#22D3EE;--green:#10B981;--orange:#F59E0B;--text:#A1A1AA;--heading:#FAFAFA;--muted:#52525B;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:#0A0A0B !important;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;min-height:100vh;display:flex;flex-direction:column;}
+a{color:var(--indigo);text-decoration:none;}
+nav{padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg);}
+.nav-logo{font-size:15px;font-weight:700;color:var(--heading);display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nav-logo-mark{width:24px;height:24px;background:var(--indigo);border-radius:6px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-mark svg{width:14px;height:14px;fill:white;}
+.wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 20px;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:880px;width:100%;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:40px;}
+.card.dark{border-color:var(--border);background:var(--surface2);}
+.plan-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);border-radius:999px;padding:4px 14px;font-size:11px;font-weight:600;color:var(--orange);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:24px;}
+h1{font-size:26px;font-weight:700;color:var(--heading);letter-spacing:-0.03em;margin-bottom:8px;}
+.subtitle{font-size:14px;color:var(--text);margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.features{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
+.feature{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text);}
+.feature::before{content:'✓';color:var(--orange);font-weight:700;flex-shrink:0;margin-top:2px;}
+.social-proof{background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:20px;margin-top:auto;}
+.quote{font-size:13px;color:var(--text);font-style:italic;line-height:1.7;margin-bottom:12px;}
+.quoter{font-size:12px;font-weight:600;color:var(--heading);}
+.quoter-title{font-size:11px;color:var(--muted);}
+.form-group{margin-bottom:16px;}
+.form-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;display:block;}
+.form-input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--heading);font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
+.form-input:focus{border-color:var(--indigo);}
+.form-input::placeholder{color:var(--muted);}
+select.form-input{cursor:pointer;}
+textarea.form-input{resize:vertical;min-height:100px;}
+.btn-send{width:100%;background:var(--indigo);color:white;border:none;padding:15px;border-radius:12px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}
+.btn-send:hover{box-shadow:0 8px 32px var(--indigo-glow);transform:translateY(-1px);}
+.btn-send::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left 0.5s;}
+.btn-send:hover::after{left:100%;}
+.note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;}
+.success{display:none;text-align:center;padding:40px 20px;}
+.success-icon{font-size:48px;margin-bottom:16px;}
+.success h2{font-size:22px;font-weight:700;color:var(--heading);margin-bottom:8px;}
+.success p{font-size:14px;color:var(--text);line-height:1.75;}
+.response-time{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:6px 14px;font-size:12px;color:var(--green);margin-top:16px;}
+@media(max-width:700px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark"><svg viewBox="0 0 14 14"><path d="M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H2z"/></svg></div>
+    Shok-IS
+  </a>
+  <a href="../index.html#pricing" style="font-size:13px;color:var(--muted);">Back to pricing</a>
+</nav>
+
+<div class="wrap">
+  <div class="grid">
+
+    <!-- LEFT: ENTERPRISE BENEFITS -->
+    <div class="card dark">
+      <div class="plan-badge">Enterprise</div>
+      <h1>Let's talk.</h1>
+      <p class="subtitle">Custom pricing for teams that need more. We'll scope a plan around your exact requirements.</p>
+
+      <div class="features">
+        <div class="feature">Unlimited prediction requests</div>
+        <div class="feature">Custom model training (bring your own data)</div>
+        <div class="feature">Dedicated VPC infrastructure</div>
+        <div class="feature">SSO / SAML 2.0 &amp; SCIM provisioning</div>
+        <div class="feature">99.99% SLA with financial penalties</div>
+        <div class="feature">Named Customer Success Engineer</div>
+        <div class="feature">Custom legal terms — DPA, MSA</div>
+        <div class="feature">365-day audit log retention</div>
+        <div class="feature">On-premises deployment (roadmap)</div>
+        <div class="feature">14-day Enterprise trial available</div>
+      </div>
+
+      <div class="social-proof">
+        <div class="quote">"The enterprise onboarding was seamless. We had our first production prediction running within 48 hours of signing."</div>
+        <div class="quoter">Marcus Klein</div>
+        <div class="quoter-title">VP Engineering, Orbis Capital</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: CONTACT FORM -->
+    <div class="card">
+      <div id="formSection">
+        <h1 style="font-size:22px;margin-bottom:6px;">Contact Sales</h1>
+        <p style="font-size:14px;color:var(--text);margin-bottom:28px;">We respond within 4 business hours.</p>
+
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input class="form-input" type="text" id="name" placeholder="James Foster">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Work Email</label>
+          <input class="form-input" type="email" id="email" placeholder="james@company.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Company Name</label>
+          <input class="form-input" type="text" id="company" placeholder="Acme Corp Ltd.">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Team Size</label>
+          <select class="form-input" id="teamSize">
+            <option value="" disabled selected>Select team size</option>
+            <option>1–10 employees</option>
+            <option>11–50 employees</option>
+            <option>51–200 employees</option>
+            <option>201–1,000 employees</option>
+            <option>1,000+ employees</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Monthly Prediction Volume (approx.)</label>
+          <select class="form-input" id="volume">
+            <option value="" disabled selected>Select volume</option>
+            <option>Under 100,000 requests/month</option>
+            <option>100,000 – 1M requests/month</option>
+            <option>1M – 10M requests/month</option>
+            <option>10M+ requests/month</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tell us about your use case</label>
+          <textarea class="form-input" id="usecase" placeholder="e.g. We need to run churn predictions on 500K customers daily and require GDPR-compliant data residency in the EU..."></textarea>
+        </div>
+
+        <button class="btn-send" onclick="submitEnterprise()">Send to Sales Team →</button>
+        <p class="note">By submitting you agree to our <a href="../legal/privacy.html">Privacy Policy</a>. No spam, ever.</p>
+      </div>
+
+      <div class="success" id="successSection">
+        <div class="success-icon">📬</div>
+        <h2>Message received!</h2>
+        <p>Our sales team will reach out to <strong id="confirmedEmail"></strong> within 4 business hours.<br><br>In the meantime, you can explore our documentation or start a free sandbox account.</p>
+        <div class="response-time">⏱ Average response time: 2h 14min</div>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
+          <a href="../docs/index.html" style="background:var(--indigo);color:white;padding:11px 22px;border-radius:10px;font-size:13px;font-weight:600;">View API Docs</a>
+          <a href="../signup/free.html" style="background:var(--surface2);color:var(--text);padding:11px 22px;border-radius:10px;font-size:13px;font-weight:500;border:1px solid var(--border);">Start Free Sandbox</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function submitEnterprise(){
+  const name  = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const company = document.getElementById('company').value;
+  if(!name||!email||!company){
+    if(!name)    document.getElementById('name').style.borderColor='#EF4444';
+    if(!email)   document.getElementById('email').style.borderColor='#EF4444';
+    if(!company) document.getElementById('company').style.borderColor='#EF4444';
+    return;
+  }
+  // ── Connect to your CRM / email here (e.g. Formspree, EmailJS, HubSpot) ──
+  // Example with Formspree: fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(form) })
+  document.getElementById('confirmedEmail').textContent = email;
+  document.getElementById('formSection').style.display = 'none';
+  document.getElementById('successSection').style.display = 'block';
+}
+</script>
+</body>
+</html>
