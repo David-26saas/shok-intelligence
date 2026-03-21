@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Free — Shok-Intelligence Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0B;--surface:#111113;--surface2:#16161A;--border:#1E1E22;--indigo:#6366F1;--cyan:#22D3EE;--green:#10B981;--text:#A1A1AA;--heading:#FAFAFA;--muted:#52525B;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:#0A0A0B !important;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;min-height:100vh;display:flex;flex-direction:column;}
+a{color:var(--indigo);text-decoration:none;}
+nav{padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg);}
+.nav-logo{font-size:15px;font-weight:700;color:var(--heading);display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nav-logo-mark{width:24px;height:24px;background:var(--indigo);border-radius:6px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-mark svg{width:14px;height:14px;fill:white;}
+.wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 20px;}
+.card{width:100%;max-width:480px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:48px;}
+.plan-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:999px;padding:4px 14px;font-size:11px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:24px;}
+h1{font-size:28px;font-weight:700;color:var(--heading);letter-spacing:-0.03em;margin-bottom:8px;}
+.subtitle{font-size:15px;color:var(--text);margin-bottom:32px;}
+.price-row{display:flex;align-items:baseline;gap:4px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.price{font-size:48px;font-weight:700;color:var(--heading);letter-spacing:-0.04em;font-family:'JetBrains Mono',monospace;}
+.price-period{font-size:14px;color:var(--muted);}
+.features{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+.feature{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text);}
+.feature::before{content:'checkmark';content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+.form-group{margin-bottom:16px;}
+.form-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;display:block;}
+.form-input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--heading);font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
+.form-input:focus{border-color:var(--green);}
+.form-input::placeholder{color:var(--muted);}
+.btn-green{width:100%;background:var(--green);color:white;border:none;padding:15px;border-radius:12px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.2s;margin-top:8px;}
+.btn-green:hover{box-shadow:0 8px 32px rgba(16,185,129,0.35);transform:translateY(-1px);}
+.note{font-size:12px;color:var(--muted);text-align:center;margin-top:16px;}
+.back-link{font-size:13px;color:var(--muted);text-align:center;margin-top:20px;display:block;}
+.success{display:none;text-align:center;padding:20px 0;}
+.success-icon{font-size:48px;margin-bottom:16px;}
+.success h2{font-size:22px;font-weight:700;color:var(--heading);margin-bottom:8px;}
+.success p{font-size:14px;color:var(--text);}
+.btn-indigo{display:inline-block;margin-top:24px;background:var(--indigo);color:white;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:600;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark"><svg viewBox="0 0 14 14"><path d="M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H2z"/></svg></div>
+    Shok-IS
+  </a>
+  <a href="../index.html#pricing" style="font-size:13px;color:var(--muted);">Back to pricing</a>
+</nav>
+ 
+<div class="wrap">
+  <div class="card">
+    <div id="formSection">
+      <div class="plan-badge">Free Forever</div>
+      <h1>Start for free</h1>
+      <p class="subtitle">No credit card required. Get access instantly.</p>
+      <div class="price-row">
+        <div class="price">£0</div>
+        <div class="price-period">/ month, forever</div>
+      </div>
+      <div class="features">
+        <div class="feature">1,000 prediction requests/month</div>
+        <div class="feature">Sandbox environment access</div>
+        <div class="feature">Python &amp; Node.js SDKs</div>
+        <div class="feature">Community support (forum)</div>
+        <div class="feature">API rate limit: 60 req/min</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input class="form-input" type="text" id="name" placeholder="James Foster">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Work Email</label>
+        <input class="form-input" type="email" id="email" placeholder="james@company.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Company</label>
+        <input class="form-input" type="text" id="company" placeholder="Acme Corp">
+      </div>
+      <button class="btn-green" onclick="submitFree()">Create Free Account</button>
+      <p class="note">By signing up you agree to our <a href="../legal/terms.html">Terms</a> and <a href="../legal/privacy.html">Privacy Policy</a>.</p>
+      <a href="../signup/index.html" class="back-link">Looking for a paid plan?</a>
+    </div>
+    <div class="success" id="successSection">
+      <div class="success-icon">🎉</div>
+      <h2>You're in!</h2>
+      <p>Check your inbox at <strong id="confirmedEmail"></strong> for your sandbox credentials.<br><br>Your workspace will be ready within 2 minutes.</p>
+      <a href="../docs/index.html" class="btn-indigo">View API Docs</a>
+    </div>
+  </div>
+</div>
+<script>
+function submitFree(){
+  const name=document.getElementById('name').value;
+  const email=document.getElementById('email').value;
+  if(!name||!email){
+    if(!name)document.getElementById('name').style.borderColor='#EF4444';
+    if(!email)document.getElementById('email').style.borderColor='#EF4444';
+    return;
+  }
+  document.getElementById('confirmedEmail').textContent=email;
+  document.getElementById('formSection').style.display='none';
+  document.getElementById('successSection').style.display='block';
+}
+</script>
+</body>
+</html>
