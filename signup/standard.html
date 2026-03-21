@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started — Standard Plan — Shok-Intelligence Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0B;--surface:#111113;--surface2:#16161A;--border:#1E1E22;--indigo:#6366F1;--indigo-dim:rgba(99,102,241,0.15);--indigo-glow:rgba(99,102,241,0.3);--cyan:#22D3EE;--green:#10B981;--orange:#F59E0B;--text:#A1A1AA;--heading:#FAFAFA;--muted:#52525B;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:#0A0A0B !important;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;min-height:100vh;display:flex;flex-direction:column;}
+a{color:var(--indigo);text-decoration:none;}
+nav{padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg);}
+.nav-logo{font-size:15px;font-weight:700;color:var(--heading);display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nav-logo-mark{width:24px;height:24px;background:var(--indigo);border-radius:6px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-mark svg{width:14px;height:14px;fill:white;}
+.wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 20px;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:880px;width:100%;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:40px;}
+.card.featured{border-color:var(--indigo);background:linear-gradient(160deg,rgba(99,102,241,0.08),var(--surface));}
+.plan-badge{display:inline-flex;align-items:center;gap:6px;background:var(--indigo-dim);border:1px solid rgba(99,102,241,0.3);border-radius:999px;padding:4px 14px;font-size:11px;font-weight:600;color:#818CF8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:24px;}
+h1{font-size:26px;font-weight:700;color:var(--heading);letter-spacing:-0.03em;margin-bottom:8px;}
+.subtitle{font-size:14px;color:var(--text);margin-bottom:28px;}
+.price-row{display:flex;align-items:baseline;gap:4px;margin-bottom:8px;}
+.price{font-size:44px;font-weight:700;color:var(--heading);letter-spacing:-0.04em;font-family:'JetBrains Mono',monospace;}
+.price-period{font-size:14px;color:var(--muted);}
+.price-justify{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.trial-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:8px 14px;font-size:13px;color:var(--green);margin-bottom:24px;width:100%;}
+.features{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+.feature{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text);}
+.feature::before{content:'✓';color:var(--indigo);font-weight:700;flex-shrink:0;margin-top:2px;}
+.form-group{margin-bottom:16px;}
+.form-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;display:block;}
+.form-input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--heading);font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
+.form-input:focus{border-color:var(--indigo);}
+.form-input::placeholder{color:var(--muted);}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:16px;}
+.toggle-label{font-size:13px;color:var(--text);}
+.toggle-save{font-size:11px;color:var(--green);font-weight:600;}
+.toggle-switch{position:relative;width:40px;height:22px;cursor:pointer;}
+.toggle-switch input{opacity:0;width:0;height:0;}
+.toggle-slider{position:absolute;inset:0;background:var(--border);border-radius:999px;transition:0.3s;}
+.toggle-slider::before{content:'';position:absolute;width:16px;height:16px;left:3px;top:3px;background:white;border-radius:50%;transition:0.3s;}
+input:checked + .toggle-slider{background:var(--indigo);}
+input:checked + .toggle-slider::before{transform:translateX(18px);}
+.price-display{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan);background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:20px;}
+.stripe-btn{width:100%;background:var(--indigo);color:white;border:none;padding:15px;border-radius:12px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}
+.stripe-btn:hover{box-shadow:0 8px 32px var(--indigo-glow);transform:translateY(-1px);}
+.stripe-btn::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left 0.5s;}
+.stripe-btn:hover::after{left:100%;}
+.secure-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;color:var(--muted);margin-top:12px;}
+.note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;}
+.back-link{font-size:13px;color:var(--muted);text-align:center;margin-top:16px;display:block;}
+@media(max-width:700px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark"><svg viewBox="0 0 14 14"><path d="M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H8zM2 8h4v4H2z"/></svg></div>
+    Shok-IS
+  </a>
+  <a href="../index.html#pricing" style="font-size:13px;color:var(--muted);">Back to pricing</a>
+</nav>
+
+<div class="wrap">
+  <div class="grid">
+
+    <!-- LEFT: PLAN SUMMARY -->
+    <div class="card featured">
+      <div class="plan-badge">Most Popular</div>
+      <h1>Standard Plan</h1>
+      <p class="subtitle">Production-grade AI infrastructure for your team.</p>
+      <div class="price-row">
+        <div class="price" id="displayPrice">£59</div>
+        <div class="price-period" id="displayPeriod">/month</div>
+      </div>
+      <p class="price-justify">Priced at one developer-hour. One avoided incident pays for six months.</p>
+
+      <div class="trial-badge">🎁 14-day free trial — cancel anytime</div>
+
+      <div class="features">
+        <div class="feature">100,000 prediction requests/month</div>
+        <div class="feature">Production environment access</div>
+        <div class="feature">All SDKs — Python, TypeScript, Go</div>
+        <div class="feature">Bidirectional sync webhooks</div>
+        <div class="feature">API latency monitoring dashboard</div>
+        <div class="feature">Email + Slack support (4h SLA)</div>
+        <div class="feature">API rate limit: 500 req/min</div>
+        <div class="feature">30-day log retention</div>
+      </div>
+
+      <a href="../signup/free.html" style="font-size:13px;color:var(--muted);display:block;text-align:center;">Just want the free plan? Start here →</a>
+    </div>
+
+    <!-- RIGHT: CHECKOUT FORM -->
+    <div class="card">
+      <h1 style="font-size:22px;margin-bottom:6px;">Complete your order</h1>
+      <p class="subtitle">You'll be redirected to Stripe to pay securely.</p>
+
+      <div class="toggle-row">
+        <div>
+          <div class="toggle-label">Annual billing</div>
+          <div class="toggle-save">Save 20% — £563/year</div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="annualToggle" onchange="toggleBilling()">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="price-display" id="priceDisplay">
+        Monthly — £59.00/mo · First 14 days free
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input class="form-input" type="text" id="name" placeholder="James Foster">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Work Email</label>
+        <input class="form-input" type="email" id="email" placeholder="james@company.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Company Name</label>
+        <input class="form-input" type="text" id="company" placeholder="Acme Corp Ltd.">
+      </div>
+
+      <button class="stripe-btn" onclick="goToStripe()">Continue to Secure Checkout →</button>
+
+      <div class="secure-note">
+        🔒 Secured by Stripe · TLS 1.3 · PCI DSS Level 1
+      </div>
+      <p class="note">By continuing you agree to our <a href="../legal/terms.html">Terms</a> and <a href="../legal/privacy.html">Privacy Policy</a>.</p>
+      <a href="../signup/enterprise.html" class="back-link">Need Enterprise? Talk to sales →</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── REPLACE WITH YOUR STRIPE PAYMENT LINKS ──
+const STRIPE = {
+  monthly: 'https://buy.stripe.com/REPLACE_MONTHLY_LINK',
+  annual:  'https://buy.stripe.com/REPLACE_ANNUAL_LINK'
+};
+
+let isAnnual = false;
+
+function toggleBilling() {
+  isAnnual = document.getElementById('annualToggle').checked;
+  document.getElementById('displayPrice').textContent = isAnnual ? '£47' : '£59';
+  document.getElementById('displayPeriod').textContent = isAnnual ? '/month, billed annually' : '/month';
+  document.getElementById('priceDisplay').textContent = isAnnual
+    ? 'Annual — £563/year · Save £145 · First 14 days free'
+    : 'Monthly — £59.00/mo · First 14 days free';
+}
+
+function goToStripe() {
+  const name  = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  if(!name || !email) {
+    if(!name)  document.getElementById('name').style.borderColor  = '#EF4444';
+    if(!email) document.getElementById('email').style.borderColor = '#EF4444';
+    return;
+  }
+  const btn = document.querySelector('.stripe-btn');
+  btn.textContent = 'Redirecting to Stripe…';
+  btn.style.opacity = '0.7';
+  const base = isAnnual ? STRIPE.annual : STRIPE.monthly;
+  const url  = base + '?prefilled_email=' + encodeURIComponent(email);
+  setTimeout(() => { window.location.href = url; }, 600);
+}
+</script>
+</body>
+</html>
