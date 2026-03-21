@@ -15,7 +15,6 @@ const NAV = `
   </div>
   <a href="../signup/index.html" class="nav-cta">Get Started</a>
 </nav>`;
-
 const FOOTER = `
 <footer>
   <div class="container">
@@ -37,19 +36,19 @@ const FOOTER = `
         <div class="footer-col-title">Product</div>
         <a href="../index.html#features">Features</a>
         <a href="../docs/index.html">API Reference</a>
-        <a href="#">Changelog</a>
-        <a href="#">Roadmap</a>
-        <a href="#">Status Page</a>
+        <a href="https://david-26saas.github.io/shok-intelligence/changelog.html">Changelog</a>
+        <a href="https://david-26saas.github.io/shok-intelligence/roadmap.html">Roadmap</a>
+        <a href="https://david-26saas.github.io/shok-intelligence/status.html">Status Page</a>
         <a href="../signup/index.html">Sandbox</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
-        <a href="#">About</a>
-        <a href="#">Blog</a>
-        <a href="#" class="hl">Careers — We're hiring →</a>
-        <a href="#">Press Kit</a>
+        <a href="https://david-26saas.github.io/shok-intelligence/about.html">About</a>
+        <a href="https://david-26saas.github.io/shok-intelligence/blog.html">Blog</a>
+        <a href="https://david-26saas.github.io/shok-intelligence/careers.html" class="hl">Careers — We're hiring →</a>
+        <a href="https://david-26saas.github.io/shok-intelligence/press-kit.html">Press Kit</a>
         <a href="../index.html#security">Security</a>
-        <a href="#">Contact</a>
+        <a href="mailto:hello@shok-is.com">Contact</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Legal & Compliance</div>
@@ -72,7 +71,6 @@ const FOOTER = `
     </div>
   </div>
 </footer>`;
-
 document.addEventListener('DOMContentLoaded', () => {
   const navEl = document.getElementById('nav-placeholder');
   const footerEl = document.getElementById('footer-placeholder');
