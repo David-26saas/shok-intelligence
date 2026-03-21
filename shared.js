@@ -1,26 +1,29 @@
 // Shared components for Shok-IS
+const BASE = 'https://david-26saas.github.io/shok-intelligence';
+
 const NAV = `
 <nav>
-  <a href="../index.html" class="nav-logo">
+  <a href="${BASE}/" class="nav-logo">
     <div class="nav-logo-mark"><svg viewBox="0 0 14 14"><path d="M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H2z"/></svg></div>
     Shok-IS
   </a>
   <div class="nav-links">
-    <a href="../index.html#features">Product</a>
-    <a href="../index.html#developers">Developers</a>
-    <a href="../integrations/index.html">Integrations</a>
-    <a href="../index.html#security">Security</a>
-    <a href="../index.html#pricing">Pricing</a>
-    <a href="../docs/index.html">Docs</a>
+    <a href="${BASE}/#features">Product</a>
+    <a href="${BASE}/#developers">Developers</a>
+    <a href="${BASE}/integrations/index.html">Integrations</a>
+    <a href="${BASE}/#security">Security</a>
+    <a href="${BASE}/#pricing">Pricing</a>
+    <a href="${BASE}/docs/index.html">Docs</a>
   </div>
-  <a href="../signup/index.html" class="nav-cta">Get Started</a>
+  <a href="${BASE}/signup/index.html" class="nav-cta">Get Started</a>
 </nav>`;
+
 const FOOTER = `
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="../index.html" class="nav-logo">
+        <a href="${BASE}/" class="nav-logo">
           <div class="nav-logo-mark"><svg viewBox="0 0 14 14" fill="white"><path d="M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H2z"/></svg></div>
           Shok-IS
         </a>
@@ -34,30 +37,30 @@ const FOOTER = `
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Product</div>
-        <a href="../index.html#features">Features</a>
-        <a href="../docs/index.html">API Reference</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/changelog.html">Changelog</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/roadmap.html">Roadmap</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/status.html">Status Page</a>
-        <a href="../signup/index.html">Sandbox</a>
+        <a href="${BASE}/#features">Features</a>
+        <a href="${BASE}/docs/index.html">API Reference</a>
+        <a href="${BASE}/changelog.html">Changelog</a>
+        <a href="${BASE}/roadmap.html">Roadmap</a>
+        <a href="${BASE}/status.html">Status Page</a>
+        <a href="${BASE}/signup/index.html">Sandbox</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
-        <a href="https://david-26saas.github.io/shok-intelligence/about.html">About</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/blog.html">Blog</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/careers.html" class="hl">Careers — We're hiring →</a>
-        <a href="https://david-26saas.github.io/shok-intelligence/press-kit.html">Press Kit</a>
-        <a href="../index.html#security">Security</a>
+        <a href="${BASE}/about.html">About</a>
+        <a href="${BASE}/blog.html">Blog</a>
+        <a href="${BASE}/careers.html" class="hl">Careers — We're hiring →</a>
+        <a href="${BASE}/press-kit.html">Press Kit</a>
+        <a href="${BASE}/#security">Security</a>
         <a href="mailto:hello@shok-is.com">Contact</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Legal & Compliance</div>
-        <a href="../legal/privacy.html">Privacy Policy</a>
-        <a href="../legal/terms.html">Terms of Service</a>
-        <a href="../legal/dpa.html">Data Processing Agreement</a>
-        <a href="../legal/cookies.html">Cookie Policy</a>
-        <a href="../legal/aup.html">Acceptable Use Policy</a>
-        <a href="../legal/gdpr.html">GDPR Statement</a>
+        <a href="${BASE}/legal/privacy.html">Privacy Policy</a>
+        <a href="${BASE}/legal/terms.html">Terms of Service</a>
+        <a href="${BASE}/legal/dpa.html">Data Processing Agreement</a>
+        <a href="${BASE}/legal/cookies.html">Cookie Policy</a>
+        <a href="${BASE}/legal/aup.html">Acceptable Use Policy</a>
+        <a href="${BASE}/legal/gdpr.html">GDPR Statement</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -71,6 +74,7 @@ const FOOTER = `
     </div>
   </div>
 </footer>`;
+
 document.addEventListener('DOMContentLoaded', () => {
   const navEl = document.getElementById('nav-placeholder');
   const footerEl = document.getElementById('footer-placeholder');
